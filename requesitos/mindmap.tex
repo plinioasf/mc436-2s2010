@@ -44,20 +44,22 @@
   \end{scope}
 
 
-  % Applied area:Pos conferencia  (one subfield)
+  % Applied area:Pos conferencia (90 a 270 graus)
 
   \begin{scope}[mindmap, concept color=green!50!black,text=white]
-    \node [concept] at (14.0,-21) {P\'os-Confer\^encia} 
-      child [grow=165, level distance=120] 
-        {node [concept] (med) {Galeria de fotos}}
-      child [grow=60] 
-        {node [concept] (gen) {G{\'e}nomique}};
+    \node [concept] at (14.0,-14) {P\'os-Confer\^encia} 
+      child [grow=90, level distance=120] 
+        {node [concept] (pogf) {Galeria de fotos}}
+    child [grow=180] 
+        {node [concept] (pofd) {Feedback}}
+    child [grow=270] 
+        {node [concept] (podp) {Disponibiliza\c{c}\~ao }};
   \end{scope}
 
   % Applied area:usuários  (one subfield)
 
   \begin{scope}[mindmap, concept color=violet, text=white,every annotation/.style={fill=black}]
-    \node [concept](usr) at (0,-14.0)  {Usu{\'a}rios}
+    \node [concept](usr) at (0,-25.0)  {Usu{\'a}rios}
       child [grow=0, level distance=120] 
         {node [concept] (org) {Organizadores}}
     child [grow=60, level distance=150] 
@@ -80,19 +82,50 @@
    
 \end{scope}
 
+%Sistema
+  \begin{scope}[mindmap, concept color=brown!50!black, text=white,every annotation/.style={fill=black}]
+    \node [concept](stg) at (0,-14.0)  {Sistema gerenciador de confer\^encias tecnol\'ogicas}
+      child [grow=0, level distance=120] 
+        {node [concept] (ac) {Acessibilidade}}
+    child [grow=60, level distance=150] 
+        {node [concept] (fa) {Facilidade de uso}}
+      child [grow=120, level distance=120] 
+        {node [concept] (se) {Segunra\c{c}a}}
+      child [grow=180, level distance=120] 
+        {node [concept] (ve) {Velocidade}} 
+     child [grow=240, level distance=120] 
+        {node [concept] (co) {Confiabilidade}}
+   child [grow=300, level distance=120] 
+        {node [concept] (ro) {Robustez}};
+  
+     \node [annotation,left] at (usr.south)
+      {Principal foco do evento};
+    \node [annotation,left] at (uimp.west)
+      {Respons\'avel por :\\Divulgar evento\\ Transmitir evento};
+    \node [annotation,right] at (upar.east)
+      {Respons\'avel por :\\};
+    \node [annotation,left] at (upal.west)
+      {Respons\'avel por :\\Submeter papers\\Disponibilização de descrição do paers  };
+  \node [annotation,right] at (org.east)
+      {Respons\'avel por :\\Manter progesso do evento\\Controle de entrada\\Segurança };
+
+   
+\end{scope}
+
+
 
 %conferencia
   \begin{scope}[mindmap, concept color=blue!50!black, text= white]
 
-    \node [concept, text=white] at(-14,-21)% (5.2,-10.8) 
+    \node [concept, text=white] at(-14,-14)% (5.2,-10.8) 
       {Confer\^encia} 
       [clockwise from=150]
       child [grow=90] {node [concept] (c-nov) {Novidades da confer\^encia}}
-      child [grow=60 level distance=125] 
+      child [grow=30 level distance=125] 
         {node [concept] (c-feed) {Possibilidade de feedback}}
-      child [grow=0] 
+      child [grow=-30] 
         {node [concept] (c-err) {Disponibiliza\c{c}\~ao de erratas}}
-      child [grow=30] {node [concept](c-tr) {Transmiss\~ao do evento}};
+      child [grow=-90] {node [concept](c-tr) {Transmiss\~ao do evento}};
   \end{scope}
 
   % Connections of researchers to applied subfields
@@ -100,6 +133,7 @@
   \begin{pgfonlayer}{background}
    % \draw [circle connection bar]
    \draw [concept connection ]
+     (ac) edge (prc-ling)
      (c-tr) edge (uimp)
      (c-err) edge (org);
   
