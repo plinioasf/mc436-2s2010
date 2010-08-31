@@ -5,8 +5,9 @@
 % Tags    : mindmap, layers
 %-%-%-%-%-%-%-%-%-%--%-%-%-%-%-%
 \documentclass{article}
+\usepackage{color}
 \usepackage{tikz,times}
-\usepackage[paperwidth=55cm,paperheight=42cm,left=1cm,top=1cm]{geometry}
+\usepackage[paperwidth=25cm,paperheight=16cm,left=1cm,top=1cm]{geometry}
 \usetikzlibrary{mindmap,backgrounds}
 
 \pagestyle{empty}
@@ -30,23 +31,68 @@
         {node [concept] (apr) {Apresentadores}} 
    
   };
-     \node [annotation,right] at (ava.east)
-      {Avalia\c{c}\~ao de trabalhos \\ Recusa de avalia\c{c}\~ao};
-    \node [annotation,right] at (coo.east)
-      {Respons\'avel por :\\Alterações no calend\'ario\\ Classifica\c{c}\~ao de palestras por \'areas de interesse \\ Transforma\c{c}\~ao de docs din\^anicos em est\'aticos\\Divulga\c{c}\~ao de slides,notas, etc. Divulgar evento\\ Transmitir evento};
-    \node [annotation] at (org.south)
-      {Respons\'avel por : Consulta as estat\'isticas sobre gastos};
-    \node [annotation,left] at (apr.west)
-      {Respons\'avel por :\\Editar trabalho submetido };
 
-    \node [annotation] at (pub.south)
-      {Respons\'avel por :\\Consulta a informa\c{c}\~oes de local \\ transporte \\ Acompanhamento do calend\'ario\\Informa\c{c}\~oes sobre publia\c{c}\~oes\\ Acesso a galeria de fotos/ v\'ideos\\ Visualiza\c{c}\~ao de eventos ao vivo\\Participa\c{c}\~ao no f\'orum\\ Informa\c{c}\~oes sobre palestrantes(consulta)\\Consulta de mudan\c{c}as no calend\'ario(avisos)\\Consulta de palestras por \'areas de interesse \\ Consulta as estat\'isticas sobre participantes, popularidade de t\'opicos };
-   \node [annotation,left] at (par.south)
-      {Respons\'avel por :\\Inscri\c{c}\~ao\\Submiss\~ao\\Avalia\c{c}\~ao de coment\'arios ap\'os a apresenta\c{c}\~ao };
+
+%% Legenda
+
+
+     \node [annotation,color=white,text=black] at (-2,-20)
+      {\large{Sistema de}};
+
+     \node [annotation,color=white,text=black] at (0,-20.05)
+      {\large{gerenciamento de }};
+  
+ \node [annotation,color=white,text=black] at (3.15,-20)
+      {\large{ confer\^encias}};
+  \node [annotation,color=white,text=black] at (5.5,-20.05)
+      {\large{tecnol\'ogicas}};
+
+
+
+     \node [annotation] at (0,-21)
+      {Legendas\\\textcolor{red}{\textbullet Pr\'e Confer\^encia} \\ \textcolor{blue}{\textbullet  Confer\^encia}\\\textcolor{green}{\textbullet P\'os Confer\^encia}};
+
+
+
+%%avaliadores
+     \node [annotation,right] at (ava.east)
+      {\textcolor{red}{\textbullet Avaliar trabalhos \\ \textbullet Recusar avalia\c{c}\~oes}};
+
+
+%%coordenadores
+    \node [annotation] at (9.6,-15.8)
+      {\textcolor{blue}{\textbullet Alterar  calend\'ario\\\textbullet Classificar palestras} \\\textcolor{green}{\textbullet Transformar documentoss din\^anicos em est\'aticos\\ \textbullet Divulgar slides e notas}};
+ 
+%%Organizadores
+   \node [annotation] at (5.5,-15.5)
+      {\textcolor{green}{\textbullet Consultar gastos}};
+
+%%apresentadores
+    \node [annotation,left] at (-6,-15.6)
+      {\textcolor{red}{\textbullet Editar trabalho submetido} };
+
+    \node [annotation] at (0,-17.5)
+      {\textcolor{red}{\textbullet Consultar informa\c{c}\~oes de local\slash transporte \\
+ \textbullet Acompanhar calend\'ario\\
+\textbullet Consultar palestrantes (convidados)}\\
+\textcolor{green}{\textbullet Consultar publica\c{c}\~oes\\
+\textbullet Acessar galeria de fotos/ v\'ideos\\\textbullet  Consultar estat\'isticas}
+\\\textcolor{blue}{\textbullet Consultar  mudan\c{c}as\\
+\textbullet Consultar de palestras } };
+
+
+   \node [annotation] at (-4,-15.8)
+      {\textcolor{red}{\textbullet Inscrever\\\textbullet Submeter}\\\textcolor{blue}{\textbullet Avaliar e comentar ap\'os a apresenta\c{c}\~ao }};
 
    
 \end{scope}
 
+
+% \begin{scope}[mindmap, concept color=white, text=white,every annotation/.style={fill=black}]
+%    \node [concept](title) at (0,-20.0)  {P\'ublico};
+% \end{scope} 
+%   \node [annotation,text=white] at (title.north)
+%{\huge{Sistema e gerenciamento de confer\^encias tecnol\'ogicas}};
 
   % Connections of researchers to applied subfields
 
