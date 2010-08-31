@@ -111,12 +111,12 @@ Os requisitos funcionais do sistema é um dos resultados da aplicação de uma t
 
 \subsection{Inscrição Usuário}
 
-Função: Inscrição Usuário
-Fase: Pré-Conferência
-Descrição: O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
-Entrada: Dados do Usuário
-Saída: Confirmação de cadastro e identificador único gerado
-Requer: Comunicação com a operadora de cartões, caso seja essa a
+\textbf{Função:} Inscrição Usuário.
+\textbf{Fase:} Pré-Conferência.
+\textbf{Descrição:} O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
+\textbf{Entrada:} Dados do Usuário.
+\textbf{Saída:} Confirmação de cadastro e identificador único gerado
+\textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a
 forma de pagamento escolhida.
 
 
@@ -153,10 +153,104 @@ forma de pagamento escolhida.
 
 
 \subsection{ Consulta a informações de local/transporte}
+\textbf{Função:} Consulta a informações
+
+\textbf{Fase:} Pré-Conferência, Conferência
+
+\textbf{Descrição:} O sistema deve disponibilizar no site principais informações sobre meios de transporte, hotéis, mapas e afins.
+
+\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+
+\textbf{Saída:} Uma lista de hotéis e transportes para a conferência, assim como mapas para o local do evento.
+
+
+\subsection{ Busca de Eventos}
+
+\textbf{Função:} Busca de Eventos
+
+\textbf{Fase:} Pré-Conferência, Conferência
+
+\textbf{Descrição:} O sistema deve possuir um sistema de busca para que palestras, workshops e afins sejam achados pelo usuário. Nesse sistema de busca o usuário escolhe alguns atributos de pesquisa conforme sua preferência para achar o evento.
+
+\textbf{Entrada:} Conjunto de preferências do usuário em relação ao evento.
+
+\textbf{Saída:} O sistema disponibiliza para o usuário uma lista de eventos conforme às preferências apontadas.
+
+
+
+\subsection{ Exibir Calendário}
+
+\textbf{Função:} Exibição de eventos
+
+\textbf{Fase:} Pré-Conferência, Conferência
+
+\textbf{Descrição:} O sistema deve disponibilizar no site principal informações sobre alguns dos eventos disponíveis ou recomendados, contendo seu 
+nome, data e categoria na qual está incluso.
+
+\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a
+abertura do site.
+
+\textbf{Saída:} Uma lista dos eventos.
+
+
+
+\subsection{Informações sobre publicações}
+
+\textbf{Função:} Exibição de informações sobre publicações
+
+\textbf{Fase:} Pré-Conferência, Conferência
+
+\textbf{Descrição:} O sistema deve disponibilizar no site principal informações sobre as existentes durante o eventos, contendo nome do autor, título e categoria na qual está incluso.
+
+\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a
+abertura do site.
+
+\textbf{Saída:} Uma lista de características de publicações.
+
+\section{Requisitos não funcionais}
+
+\subsection{ Facilidade de uso}
+\textbullet Tempo de treinamento
+
+O tempo máximo para que um usuário aprenda a utilizar o sistema não deve ser superior a 15 minutos.
+Supõe-se que em tal tempo um usuário seja capaz de entrar ao site 
+pela primeira vez e realizar a inscrição e buscar informações necessárias para a sua participação .
+
+
+\subsection{Confiabilidade}
+\textbullet\hspace{1mm} Taxa de ocorrência de falhas
+
+A quantidade de falhas apresentadas pelo sistema deve ser inferior a 5 falhas\ mês.
+
+\textbullet\hspace{1mm} Disponibilidade
+
+O sistema deve estar disponível todo o tempo, com a tolerância miníma para as falhas.
+
+
+\subsection{Robustez}
+\textbullet\hspace{1mm} Tempo de reinício
+
+Após uma falha, durante o período de pré-conferência, o sistema deverá voltar a estar disponivel em um tempo t, tal que t $\leq$ 15 minutos .
+Após uma falha, durante o período de conferência, o sistema deverá voltar a estar disponivel em um tempo t, tal que t $\leq$ 2 minutos .
+
+\textbullet\hspace{1mm} Probabilidade corromper dados/falha
+Os dados salvos não devem ser corrompidos por uma falha.
+
+
+
 
 
 
 \section{Glossário}
+\begin{description}
+\item[Requisitos funcionais] 
+Definem as funções que o sistema deverá realizar para atender ao propósito pelo qual foi projetado.
+\item [Requisitos não funcionais]
+Definem aspectos que não são funcionalidades do sistema mas que são necessárias para o seu funcionamento
+correto, como segurança, confiabilidade, desempenho, entre outros.
+\end{description}
+
 \section{Referências}
+
 
 \end{document}
