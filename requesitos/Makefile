@@ -11,4 +11,6 @@ clean:
 	rm *.dvi *.aux *.out *.log
 mind:
 	pdflatex $(file2).tex
+den:
+	pdflatex desenho.tex
 

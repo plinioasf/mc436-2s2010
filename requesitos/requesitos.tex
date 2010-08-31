@@ -104,19 +104,58 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 
 
 
-\section{Aplicação da técnica ao estudo de caso}
-\subsection{Resultados obtidos}
-\subsection{Validação dos resultados}
-\section{Requisitos}
+\section{Mapeamento Pontos de Vistas/Serviços}
 \section{Requisitos Funcionais}
-\subsection{Cadastro do Usuário}
-\section{Requisitos não funcionais}
-\subsection{Requisitos de produtos}
-\subsection{Requisitos organizacionais}
-\subsection{Requisitos externos}
-\section{Métricas para especificar requisitos}
-\section{Modelos do sistema}
-\section{Evolução de sistema}
+
+Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e saídas, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
+
+\subsection{Inscrição Usuário}
+
+Função: Inscrição Usuário
+Fase: Pré-Conferência
+Descrição: O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
+Entrada: Dados do Usuário
+Saída: Confirmação de cadastro e identificador único gerado
+Requer: Comunicação com a operadora de cartões, caso seja essa a
+forma de pagamento escolhida.
+
+
+
+\subsection{ Submissão de Paper}
+
+\textbf{Função:} Submissão
+
+\textbf{Fase:} Pré-Conferência
+
+\textbf{Descrição:} O sistema deve permitir que o participante submeta papers via pagamento da taxa de submissão
+
+\textbf{Pré-condição:} O usuário deverá estar identificado no sistema com seu login
+
+\textbf{Entrada:} Identificador do Participante, Paper
+
+\textbf{Saída:} Confirmação da submissão
+
+\textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a forma de pagamento escolhida.
+
+\subsection{ Avaliação e Envios de Comentários}
+
+\textbf{Função:} Comentários
+
+\textbf{Fase:} Conferência
+
+\textbf{Descrição:} O sistema deve permitir que o participante possa avaliar e enviar comentários para outros participantes ou apresentadores.
+
+\textbf{Pré-condição:} O usuário deverá estar identificado no sistema com seu login
+
+\textbf{Entrada:} Avaliação/Comentário gerado pelo participante
+
+\textbf{Saída:} Disponibilização da entrada para os destinatários escolhidos pelo participante
+
+
+\subsection{ Consulta a informações de local/transporte}
+
+
+
 \section{Glossário}
 \section{Referências}
 
