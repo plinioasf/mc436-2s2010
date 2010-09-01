@@ -27,6 +27,8 @@
 \usepackage{multicol}   
 \usepackage[linkbordercolor={1 1 1},urlcolor=black,colorlinks=false]{hyperref} % links
 
+
+\usepackage{cite}  % Needed to use citations.  
 \usepackage{indentfirst} %retira padrao americano de paragrafos
 \usepackage{ae,aecompl}
 \usepackage{pslatex}
@@ -35,6 +37,12 @@
 \usepackage{pstricks}
 \usepackage[letterpaper]{geometry}
 \geometry{verbose,lmargin=3cm,rmargin=3cm}
+
+
+%%% extras %%%
+\RequirePackage{marvosym} % figuras \Letter \Email 
+\usepackage{fancyhdr}     % Headers
+\usepackage{epsf}
 
 
 % Capa estilizada %
@@ -207,6 +215,63 @@ abertura do site.
 
 \textbf{Saída:} Uma lista de características de publicações.
 
+
+
+\subsection{Editar Trabalhos Submetidos}
+
+\textbf{Função:} Editar
+
+\textbf{Fase:} Pré-Conferência
+
+\textbf{Descrição:} O sistema deve permitir que o usuário possa editar seu trabalho submetido, afim de gerar melhorias, mudar padrões, entre outros.
+
+\textbf{Pré-condição:} O usuário deverá estar identificado no sistema com seu login e possuir um trabalho previamente submetido.
+
+\textbf{Entrada:} Nenhuma entrada é requerida.
+
+\textbf{Saída:} Trabalho atualizado.
+
+
+
+\subsection{Acesso a Galeria de Fotos/Vídeos}
+
+\textbf{Função:} Acesso a Galeria
+
+\textbf{Fase:} Pós-Conferência
+
+\textbf{Descrição:} O sistema deve disponibilizar no site principal fotos e vídeos gerados durante a realização
+
+\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+
+\textbf{Saída:} Fotos e Videos da conferência.
+
+
+
+\subsection{ Avaliação de Trabalhos}
+
+\textbf{Função:} Avaliação de Trabalhos
+
+\textbf{Fase:} Pré-Conferência
+
+\textbf{Descrição:} O sistema deve permitir a avaliação de trabalhos submetidos por parte dos avaliadores
+
+\textbf{Entrada:} Trabalho avaliado pelo avaliador com os devidos comentários
+
+\textbf{Saída:} Disponibilização da entrada para o autor do paper avaliado e para o coordenador.
+
+
+\subsection{ Recusa de Avaliação}
+
+\textbf{Função:} Recusa de Avaliação
+
+\textbf{Fase:} Pré-Conferência
+
+\textbf{Descrição:} O sistema deve permitir que um avaliador recuse a avaliação de um trabalho submetido mediante justificativa
+
+\textbf{Entrada:} Justificativa para a recusa de avaliação do trabalho
+
+\textbf{Saída:} Redirecionamento do trabalho para outro avaliador
+
 \section{Requisitos não funcionais}
 
 \subsection{ Facilidade de uso}
@@ -244,13 +309,23 @@ Os dados salvos não devem ser corrompidos por uma falha.
 \section{Glossário}
 \begin{description}
 \item[Requisitos funcionais] 
-Definem as funções que o sistema deverá realizar para atender ao propósito pelo qual foi projetado.
+Definem as funções que o sistema deverá realizar para atender ao propósito pelo qual foi projetado .
 \item [Requisitos não funcionais]
 Definem aspectos que não são funcionalidades do sistema mas que são necessárias para o seu funcionamento
 correto, como segurança, confiabilidade, desempenho, entre outros.
+
+\item[Conferência Tecnológica] É um evento que dura um certo período e consiste de uma ou mais sessões (apresentações, palestras, minicursos) sobre uma ou mais determinadas áreas tecnológicas, como inovação em uma empresa para o desenvolvimento sustentável.
+
+\item[Paper] Paper ou artigo científico é um trabalho acadêmico que apresenta resultado sucinto de pesquisa realizada de acordo com a metodologia de ciência aceita por uma comunidade de pesquisadores. Considera-se científico o artigo que foi submetido ao exame de outros cientistas, que verificam as informações, os métodos e a precisão lógico-metodológica das conclusões ou resultados obtidos. Pode ser resultado de sínteses de trabalhos maiores ou elaborados em número de três ou quatro, em substituição às teses e dissertações; são desenvolvidos, nesses casos, sob a assistência de um orientador acadêmico.
+
+\item[Workshop] É uma reunião de grupos de trabalho interessados em determinado projeto ou atividade para discussão e/ou apresentação prática do referido projeto ou atividade.
 \end{description}
 
-\section{Referências}
-
-
+\vspace{-12mm}
+\renewcommand{\refname}{\section{Referências}}
+  \begin{thebibliography}{2}  
+\vspace{-5mm}
+         \bibitem{RP}Ian Sommerville  \newblock\emph{Software engineering}.\newblock Addison-Wesley, 2001. 
+      \bibitem{ULK} Roger S. Pressman \newblock\emph{Software engineering}.\newblock McGraw Hill Higher Education, 2000.
+  \end{thebibliography}  
 \end{document}
