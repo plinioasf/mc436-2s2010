@@ -112,7 +112,14 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 
 \section{Mapeamento Pontos de Vistas/Serviços}
 
-\begin{table}
+Com o intuito de reconhecer as várias perpectivas e descobrir conflitos nos requisitos propostos, é realizado uma abordagem orientada a ponto de vista do sistema gerenciador de conferências tecnológicas.
+
+
+\begin{center}
+
+\begin{table}[h!]
+
+\begin{center}
 \begin{tabular}{|ll|}
 \hline 
 \multicolumn{2}{|c|}{\textbf{Participantes}}\tabularnewline
@@ -126,13 +133,15 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 \textbf{Subpontos de vista:} & Apresentadores \tabularnewline
 \hline
 \end{tabular}
+\end{center}
 \end{table}
 
 
 %
-\begin{table}
+\begin{table}[h!]
 
 
+\begin{center}
 \begin{tabular}{|ll|}
 \hline 
 \multicolumn{2}{|c|}{\textbf{Apresentadores}}\tabularnewline
@@ -144,13 +153,14 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 \textbf{Subpontos de vista:} & Apresentadores \tabularnewline
 \hline
 \end{tabular}
+
+\end{center}
 \end{table}
 
 
 %
-\begin{table}
-
-
+\begin{table}[h!]
+\begin{center}
 \begin{tabular}{|ll|}
 \hline 
 \multicolumn{2}{|c|}{\textbf{Avaliadores}}\tabularnewline
@@ -163,9 +173,12 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 \textbf{Subpontos de vista:} & Coordenadores\tabularnewline
 \hline
 \end{tabular}
+\end{center}
 \end{table}
 %
-\begin{table}
+\newpage
+\begin{table}[h!]
+\begin{center}
 \begin{tabular}{|ll|}
 \hline 
 \multicolumn{2}{|c|}{\textbf{Organizadores}}\tabularnewline
@@ -177,13 +190,13 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 \textbf{Subpontos de vista:} & Coordenadores\tabularnewline
 \hline
 \end{tabular}
+\end{center}
 \end{table}
 
 
 %
-\begin{table}
-
-
+\begin{table}[h!]
+\begin{center}
 \begin{tabular}{|ll|}
 \hline 
 \multicolumn{2}{|c|}{\textbf{Coordenadores}}\tabularnewline
@@ -198,11 +211,13 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 \textbf{Subpontos de vista:} & Apresentadores \tabularnewline
 \hline
 \end{tabular}
+\end{center}
 \end{table}
 
 
 %
-\begin{table}
+\begin{table}[h!]
+\begin{center}
 \begin{tabular}{|ll|}
 \hline 
 \multicolumn{2}{|c|}{\textbf{Público}}\tabularnewline
@@ -221,14 +236,260 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
  & Acessar galeria\tabularnewline
 \textbf{Subpontos de vista:} & Participantes, Organizadores, Avaliadores \tabularnewline
 \hline
+
 \end{tabular}
 
+\end{center}
 
 \end{table}
 
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%Mapeamento 
+
+\newpage
+Além disso, é realizada um mapeamento de serviços, cuja essência é ser independente da aplicação que o utiliza.
+
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar informações}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar local/transporte\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Entrar na secção de informações sobre o local/transporte\tabularnewline
+ & observar mapas\tabularnewline
+ & informações sobre transporte público\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar palestrantes convidados}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar palestrantes convidados\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Entrar na secção de informações sobre palestrantes convidados\tabularnewline
+ & observar perfis\tabularnewline
+ & páginas da web e outras informações disponíveis sobre os palestrantes\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar palestras}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar palestras\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Entrar na secção de informações sobre palestras\tabularnewline
+ & visualizar as palestrar por áreas de interesse\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar mudanças}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar mudanças\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Observação do quadro de avisos\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & Deve ter destaque na página de modo que seja de fácil visualização\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+\begin{flushleft}
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Acompanhar calendário}}\tabularnewline
+\hline
+\textbf{Referência:} & Acompanhar calendário\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Possibilidade de visualização de informações separadas por dia (ou
+como um todo)\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+\par\end{flushleft}
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar publicações}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar publicações\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Links para baixar ou comprar publicações referentes à conferência\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & Deve ter destaque na página de modo que seja de fácil visualização\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Acessar galeria de fotos}}\tabularnewline
+\hline
+\textbf{Referência:} & Acessar galeria de fotos\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Visualização da galeria de fotos com a possibilidade de classificação
+por data\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar estatísticas}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar estatísticas\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Possibilidade de visualização das estatísticas (número de participantes,
+público diário,\tabularnewline
+ & avaliação das apresentações, popularidade de tópicos)\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar gastos}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar gastos\tabularnewline
+\textbf{Razão:} & Informação para os organizadores\tabularnewline
+\textbf{Especificações:} & Acesso somente aos organizadores\tabularnewline
+ & Possibilidade de visualização das estatísticas sobre gastos\tabularnewline
+\textbf{Pontos de vista:} & Organizadores\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Inscrição}}\tabularnewline
+\hline
+\textbf{Referência:} & Inscrever participante\tabularnewline
+\textbf{Razão:} & Facilidade para os participantes\tabularnewline
+\textbf{Especificações:} & Entrar na área de cadastro\tabularnewline
+ & Digitar informações e efetuar o pagamento\tabularnewline
+\textbf{Pontos de vista:} & Participantes\tabularnewline
+\textbf{Requisito não funcional:} & Garantir privacidade das informações pessoais dos participantes \tabularnewline
+ & Garantir a segurança ao efetuar o pagamento\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Submissão}}\tabularnewline
+\hline
+\textbf{Referência:} & Submeter trabalhos\tabularnewline
+\textbf{Razão:} & Facilidade para os participantes\tabularnewline
+\textbf{Especificações:} & Realizar upload de trabalhos na área apropriada\tabularnewline
+\textbf{Pontos de vista:} & Participantes\tabularnewline
+\textbf{Requisito não funcional:} & Garantir segurança. Isto é, apenas as pessoas autorizadas devem ter
+acesso aos trabalhos\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Avaliar trabalhos}}\tabularnewline
+\hline
+\textbf{Referência:} & Avaliar trabalhos\tabularnewline
+\textbf{Razão:} & Facilidade para os avaliadores\tabularnewline
+\textbf{Especificações:} & Entrar com login e senha na secção de acesso dos avalidores\tabularnewline
+ & avaliar trabalho\tabularnewline
+ &  escolher uma área de interesse (assunto do trabalho)\tabularnewline
+\textbf{Pontos de vista:} & Avaliadores\tabularnewline
+\textbf{Requisito não funcional:} & Desígnio de trabalho para avaliadores deve ser de forma aleatória\tabularnewline
+ & Sorteio após no máximo um minuto da escolha da área de interesse\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Recusar avaliação}}\tabularnewline
+\hline
+\textbf{Referência:} & Recusar avaliação\tabularnewline
+\textbf{Razão:} & Facilidade para os avaliadores\tabularnewline
+\textbf{Especificações:} & Escolher opção \textquotedblleft{}rejeitar\textquotedblright{} para
+outro trabalho ser sorteado\tabularnewline
+\textbf{Pontos de vista:} & Avaliador\tabularnewline
+\textbf{Requisito não funcional:} & Novo trabalho deve ser sorteado após no máximo um minuto da desistência
+anterior\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+\newpage
+\textcolor{white}{a}
+\newpage
+
+\textcolor{white}{a}
+\newpage
 \section{Requisitos Funcionais}
 
-Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e \textbf{Saída:} s, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
+Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e saídas, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
 
 \subsection{Inscrição Usuário}
 
