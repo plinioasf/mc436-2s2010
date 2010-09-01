@@ -58,14 +58,12 @@ Raquel Mayumi Kawamoto & RA: 086003 \\
     \itshape \today }\\[\baselineskip] \vspace{3.2pt} \endgroup}
 
 
+
+
 \begin{document}
 \titleTMB 
 \newpage
 
-%  \begin{abstract}
-%=)
-%  \end{abstract}
-%\newpage
 
 \tableofcontents
 
@@ -113,17 +111,137 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 
 
 \section{Mapeamento Pontos de Vistas/Serviços}
+
+\begin{table}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Participantes}}\tabularnewline
+\hline
+\textbf{Referência:} & Participantes\tabularnewline
+\textbf{Atributos} & Número de inscrição\tabularnewline
+\textbf{Eventos} & \tabularnewline
+\textbf{Serviços} & Inscrição\tabularnewline
+ & Submissão\tabularnewline
+ & Avaliar e enviar comentários após apresentação\tabularnewline
+\textbf{Subpontos de vista:} & Apresentadores \tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+%
+\begin{table}
+
+
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Apresentadores}}\tabularnewline
+\hline
+\textbf{Referência:} & Ap\'{r}esentadores\tabularnewline
+\textbf{Atributos} & Número de palestras/mini-cursos\tabularnewline
+\textbf{Eventos} & \tabularnewline
+\textbf{Serviços} & Editar trabalho submetido\tabularnewline
+\textbf{Subpontos de vista:} & Apresentadores \tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+%
+\begin{table}
+
+
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Avaliadores}}\tabularnewline
+\hline
+\textbf{Referência:} & Avaliadores\tabularnewline
+\textbf{Atributos} & id\_avaliador\tabularnewline
+\textbf{Eventos} & \tabularnewline
+\textbf{Serviços} & Avaliar trabalhos\tabularnewline
+ & Recusar avaliação\tabularnewline
+\textbf{Subpontos de vista:} & Coordenadores\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+%
+\begin{table}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Organizadores}}\tabularnewline
+\hline
+\textbf{Referência:} & Organizadores\tabularnewline
+\textbf{Atributos} & Função, id\_organizador\tabularnewline
+\textbf{Eventos} & \tabularnewline
+\textbf{Serviços} & Consultar estatísticas sobre gastos\tabularnewline
+\textbf{Subpontos de vista:} & Coordenadores\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+%
+\begin{table}
+
+
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Coordenadores}}\tabularnewline
+\hline
+\textbf{Referência:} & Coordenadores\tabularnewline
+\textbf{Atributos} & Número de palestras/mini-cursos\tabularnewline
+\textbf{Eventos} & \tabularnewline
+\textbf{Serviços} & Alterar calendário\tabularnewline
+ & Classificar palestras\tabularnewline
+ & Transformar documentos dinâmicos em estáticos\tabularnewline
+ & Divulgar slides e notas\tabularnewline
+\textbf{Subpontos de vista:} & Apresentadores \tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+%
+\begin{table}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Público}}\tabularnewline
+\hline
+\textbf{Referência:} &  Público\tabularnewline
+\textbf{Atributos} & \tabularnewline
+\textbf{Eventos} & \tabularnewline
+\textbf{Serviços} & \tabularnewline
+ & Consultar informações de local/transporte\tabularnewline
+ & Consultar estatísticasde fotos\tabularnewline
+ & Acompanhar calendário \tabularnewline
+ & Consultar mudanças\tabularnewline
+ & Consultar palestrantes convidados\tabularnewline
+ & Consultar palestras\tabularnewline
+ & Consultar publicações\tabularnewline
+ & Acessar galeria\tabularnewline
+\textbf{Subpontos de vista:} & Participantes, Organizadores, Avaliadores \tabularnewline
+\hline
+\end{tabular}
+
+
+\end{table}
+
 \section{Requisitos Funcionais}
 
-Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e saídas, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
+Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e \textbf{Saída:} s, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
 
 \subsection{Inscrição Usuário}
 
 \textbf{Função:} Inscrição Usuário.
-\textbf{Fase:} Pré-Conferência.
-\textbf{Descrição:} O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
-\textbf{Entrada:} Dados do Usuário.
-\textbf{Saída:} Confirmação de cadastro e identificador único gerado
+
+\textbf{Fase: } Pré-Conferência.
+
+\textbf{Descrição: } O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
+
+\textbf{Entrada: } Dados do Usuário.
+
+\textbf{Saída: :} Confirmação de cadastro e identificador único gerado
+
 \textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a
 forma de pagamento escolhida.
 
@@ -133,15 +251,15 @@ forma de pagamento escolhida.
 
 \textbf{Função:} Submissão
 
-\textbf{Fase:} Pré-Conferência
+\textbf{Fase: } Pré-Conferência
 
-\textbf{Descrição:} O sistema deve permitir que o participante submeta papers via pagamento da taxa de submissão
+\textbf{Descrição: } O sistema deve permitir que o participante submeta papers via pagamento da taxa de submissão
 
-\textbf{Pré-condição:} O usuário deverá estar identificado no sistema com seu login
+\textbf{Pré-condição: } O usuário deverá estar identificado no sistema com seu login
 
-\textbf{Entrada:} Identificador do Participante, Paper
+\textbf{Entrada: } Identificador do Participante, Paper
 
-\textbf{Saída:} Confirmação da submissão
+\textbf{Saída: :} Confirmação da submissão
 
 \textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a forma de pagamento escolhida.
 
@@ -149,40 +267,41 @@ forma de pagamento escolhida.
 
 \textbf{Função:} Comentários
 
-\textbf{Fase:} Conferência
+\textbf{Fase: } Conferência
 
-\textbf{Descrição:} O sistema deve permitir que o participante possa avaliar e enviar comentários para outros participantes ou apresentadores.
+\textbf{Descrição: } O sistema deve permitir que o participante possa avaliar e enviar comentários para outros participantes ou apresentadores.
 
-\textbf{Pré-condição:} O usuário deverá estar identificado no sistema com seu login
+\textbf{Pré-condição: } O usuário deverá estar identificado no sistema com seu login
 
-\textbf{Entrada:} Avaliação/Comentário gerado pelo participante
+\textbf{Entrada: } Avaliação/Comentário gerado pelo participante
 
-\textbf{Saída:} Disponibilização da entrada para os destinatários escolhidos pelo participante
+\textbf{Saída: :} Disponibilização da entrada para os destinatários escolhidos pelo participante
 
 
 \subsection{ Consulta a informações de local/transporte}
+
 \textbf{Função:} Consulta a informações
 
-\textbf{Fase:} Pré-Conferência, Conferência
+\textbf{Fase: } Pré-Conferência, Conferência
 
-\textbf{Descrição:} O sistema deve disponibilizar no site principais informações sobre meios de transporte, hotéis, mapas e afins.
+\textbf{Descrição: } O sistema deve disponibilizar no site principais informações sobre meios de transporte, hotéis, mapas e afins.
 
-\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
 
-\textbf{Saída:} Uma lista de hotéis e transportes para a conferência, assim como mapas para o local do evento.
+\textbf{Saída: :} Uma lista de hotéis e transportes para a conferência, assim como mapas para o local do evento.
 
 
 \subsection{ Busca de Eventos}
 
 \textbf{Função:} Busca de Eventos
 
-\textbf{Fase:} Pré-Conferência, Conferência
+\textbf{Fase: } Pré-Conferência, Conferência
 
-\textbf{Descrição:} O sistema deve possuir um sistema de busca para que palestras, workshops e afins sejam achados pelo usuário. Nesse sistema de busca o usuário escolhe alguns atributos de pesquisa conforme sua preferência para achar o evento.
+\textbf{Descrição: } O sistema deve possuir um sistema de busca para que palestras, workshops e afins sejam achados pelo usuário. Nesse sistema de busca o usuário escolhe alguns atributos de pesquisa conforme sua preferência para achar o evento.
 
-\textbf{Entrada:} Conjunto de preferências do usuário em relação ao evento.
+\textbf{Entrada: } Conjunto de preferências do usuário em relação ao evento.
 
-\textbf{Saída:} O sistema disponibiliza para o usuário uma lista de eventos conforme às preferências apontadas.
+\textbf{Saída: :} O sistema disponibiliza para o usuário uma lista de eventos conforme às preferências apontadas.
 
 
 
@@ -190,15 +309,15 @@ forma de pagamento escolhida.
 
 \textbf{Função:} Exibição de eventos
 
-\textbf{Fase:} Pré-Conferência, Conferência
+\textbf{Fase: } Pré-Conferência, Conferência
 
-\textbf{Descrição:} O sistema deve disponibilizar no site principal informações sobre alguns dos eventos disponíveis ou recomendados, contendo seu 
+\textbf{Descrição: } O sistema deve disponibilizar no site principal informações sobre alguns dos eventos disponíveis ou recomendados, contendo seu 
 nome, data e categoria na qual está incluso.
 
-\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a
 abertura do site.
 
-\textbf{Saída:} Uma lista dos eventos.
+\textbf{Saída: :} Uma lista dos eventos.
 
 
 
@@ -206,30 +325,30 @@ abertura do site.
 
 \textbf{Função:} Exibição de informações sobre publicações
 
-\textbf{Fase:} Pré-Conferência, Conferência
+\textbf{Fase: } Pós-Conferência
 
-\textbf{Descrição:} O sistema deve disponibilizar no site principal informações sobre as existentes durante o eventos, contendo nome do autor, título e categoria na qual está incluso.
+\textbf{Descrição: } O sistema deve disponibilizar no site principal as informações sobre as publicações participantes do evento, contendo o nome do autor, título, categoria e breve descrição.
 
-\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a
 abertura do site.
 
-\textbf{Saída:} Uma lista de características de publicações.
+\textbf{Saída: :} Uma lista de características de publicações.
 
 
 
 \subsection{Editar Trabalhos Submetidos}
 
-\textbf{Função:} Editar
+\textbf{Função:}  Editar
 
 \textbf{Fase:} Pré-Conferência
 
 \textbf{Descrição:} O sistema deve permitir que o usuário possa editar seu trabalho submetido, afim de gerar melhorias, mudar padrões, entre outros.
 
-\textbf{Pré-condição:} O usuário deverá estar identificado no sistema com seu login e possuir um trabalho previamente submetido.
+\textbf{Pré-condição:}  O usuário deverá estar identificado no sistema com seu login e possuir um trabalho previamente submetido.
 
-\textbf{Entrada:} Nenhuma entrada é requerida.
+\textbf{Entrada:}  Nenhuma entrada é requerida.
 
-\textbf{Saída:} Trabalho atualizado.
+\textbf{Saída:}  Trabalho atualizado.
 
 
 
@@ -237,13 +356,13 @@ abertura do site.
 
 \textbf{Função:} Acesso a Galeria
 
-\textbf{Fase:} Pós-Conferência
+\textbf{Fase: } Pós-Conferência
 
-\textbf{Descrição:} O sistema deve disponibilizar no site principal fotos e vídeos gerados durante a realização
+\textbf{Descrição: } O sistema deve disponibilizar no site principal fotos e vídeos gerados durante a realização
 
-\textbf{Entrada:} Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
 
-\textbf{Saída:} Fotos e Videos da conferência.
+\textbf{Saída: :} Fotos e Videos da conferência.
 
 
 
@@ -251,26 +370,147 @@ abertura do site.
 
 \textbf{Função:} Avaliação de Trabalhos
 
-\textbf{Fase:} Pré-Conferência
+\textbf{Fase: } Pré-Conferência
 
-\textbf{Descrição:} O sistema deve permitir a avaliação de trabalhos submetidos por parte dos avaliadores
+\textbf{Descrição: } O sistema deve permitir a avaliação de trabalhos submetidos por parte dos avaliadores
 
-\textbf{Entrada:} Trabalho avaliado pelo avaliador com os devidos comentários
+\textbf{Entrada: } Trabalho avaliado pelo avaliador com os devidos comentários
 
-\textbf{Saída:} Disponibilização da entrada para o autor do paper avaliado e para o coordenador.
+\textbf{Saída: :} Disponibilização da entrada para o autor do paper avaliado e para o coordenador.
 
 
 \subsection{ Recusa de Avaliação}
 
 \textbf{Função:} Recusa de Avaliação
 
-\textbf{Fase:} Pré-Conferência
+\textbf{Fase: } Pré-Conferência
 
-\textbf{Descrição:} O sistema deve permitir que um avaliador recuse a avaliação de um trabalho submetido mediante justificativa
+\textbf{Descrição: } O sistema deve permitir que um avaliador recuse a avaliação de um trabalho submetido mediante justificativa
 
-\textbf{Entrada:} Justificativa para a recusa de avaliação do trabalho
+\textbf{Entrada: } Justificativa para a recusa de avaliação do trabalho
 
-\textbf{Saída:} Redirecionamento do trabalho para outro avaliador
+\textbf{Saída: :} Redirecionamento do trabalho para outro avaliador
+
+
+
+
+\subsection{Consultar Gastos}
+\textbf{Função:}  Consultar Gastos
+
+\textbf{Fase:}  Pós-Conferência
+
+\textbf{Descrição: } O sistema deve permitir que os organizadores do evento possam ter um acesso ao balanço final de gastos da conferência.
+
+\textbf{Pré-condição:}  O organizador deverá estar identificado no sistema com seu login.
+
+\textbf{Entrada: } Nenhuma entrada é requerida.
+
+\textbf{Saída:}  Tabela com os dados dos gastos gerados pela conferência.
+
+\subsection{Consultar Mudanças}
+
+\textbf{Função:}  Consultar Mudanças
+
+\textbf{Fase:}  Conferência
+
+\textbf{Descrição:}  O sistema deve permitir que o público possa visualizar as mudanças de cronograma geradas durante a conferência que estarão localizadas em destaque na página
+
+\textbf{Entrada:}  Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+
+\textbf{Saída:}  Lista com as mudanças geradas durante a conferência.
+
+\subsection{Consultar Palestrantes Convidados}
+
+\textbf{Função:}  Consultar Palestrantes Convidados
+
+\textbf{Fase:}  Pré-Conferência
+
+\textbf{Descrição:}  O sistema deverá permitir que o público busque pelos palestrantes onde haverá informações sobre página web do palestrante, perfil e outras informações.
+
+\textbf{Entrada:}  Conjunto de Informações para realização da busca
+
+\textbf{Saída:}  O sistema disponibiliza para o usuário uma lista conforme às informações apontadas.
+
+
+\subsection{Consultar estatísticas}
+
+\textbf{Função:}  Consultar estatísticas
+
+\textbf{Fase:}  Pós- Conferência
+
+\textbf{Descrição:}  O sistema deve disponibilizar no site principal informações sobre o número de pessoas que participaram do evento, da quantidade de palestrantes, dos usuários que visitaram o site durante a conferência, entre outros.
+
+\textbf{Entrada:}  Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+
+\textbf{Saída:}  Tabela com as estatísticas.
+ 
+
+\subsection{Alterar Calendário}
+
+\textbf{Função:} Alterar Calendário
+
+\textbf{Fase:}  Conferência
+
+\textbf{Descrição:}  O sistema deve permitir que o coordenador possa modificar o calendário devido a imprevistos ocorridos durante a conferência
+
+\textbf{Pré-condição:}  O coordenador deverá estar identificado no sistema com seu login.
+
+\textbf{Entrada:} Dados a serem alterados no calendário.
+
+\textbf{Saída:}  Mudanças em destaque no site e o calendário atualizado.
+
+
+
+\subsection{Classificar palestras}
+
+\textbf{Função:} Classificar palestras quanto às suas áreas/categorias
+
+\textbf{Fase:}  Pré-Conferência
+
+\textbf{Descrição:}  O sistema deve permitir que o coordenador possa ordenar as palestras conforme sua categoria/área.
+
+\textbf{Pré-condição:}  O coordenador deverá estar identificado no sistema com seu login.
+
+\textbf{Entrada:}  Palestras a serem classificadas
+
+\textbf{Saída:}  Tabelas das palestras classificadas de acordo com sua categoria
+
+
+
+\subsection{Transformar Documentos Dinâmicos em Estáticos}
+
+\textbf{Função:} Transformar Documentos Dinâmicos em Estáticos
+
+\textbf{Fase:}  Pós-Conferência
+
+\textbf{Descrição:}  O sistema deve permitir que o coordenador transforme os dados dinâmicos em estáticos, ou seja, dados que são constantemente gerados durante a conferência como, por exemplo, estatísticos.
+
+\textbf{Pré-condição:}  O coordenador deverá estar identificado no sistema com seu login.
+
+\textbf{Entrada:}  Documentos Dinâmicos
+
+\textbf{Saída:}  Documentos Estáticos
+
+
+\subsection{Divulgar slides e notas}
+
+\textbf{Função:} Divulgar slides e notas
+
+\textbf{Fase:}  Conferência
+
+\textbf{Descrição:}  O sistema deve permitir que o coordenador possa divulgar, a partir do consentimento do palestrante, slides utilizados durante a conferência e informações adicionais.
+
+\textbf{Pré-condição:}  O coordenador deverá estar identificado no sistema com seu login e o palestrante deve autorizar a disponibilização dos materiais.
+
+\textbf{Entrada:}  Dados e documentos a serem inseridos.
+
+\textbf{Saída:}  Mudanças devem aparecer no site na seção de cada palestrante.
+
+ 
+
+
+
+
 
 \section{Requisitos não funcionais}
 
@@ -299,9 +539,22 @@ Após uma falha, durante o período de pré-conferência, o sistema deverá volt
 Após uma falha, durante o período de conferência, o sistema deverá voltar a estar disponivel em um tempo t, tal que t $\leq$ 2 minutos .
 
 \textbullet\hspace{1mm} Probabilidade corromper dados/falha
+
 Os dados salvos não devem ser corrompidos por uma falha.
 
 
+\section{Evolução de sistema}
+Atualmente, o sistema gerenciador de conferências tecnológicas é desenvolvido para conferências nacionais, e somente possui suporte à língua portuguesa. O pagamento de inscrição somente pode ser feito através da moeda local (Real).
+Dentre as mudanças previstas tem-se:
+
+\begin{description}
+
+\item[Suporte à conferências internacionais:]  O sistema poderá oferecer suporte a conferências internacionais, com pagamento em moeda es trangeira. Para isso será necessário uma adaptação no mecanismo de venda, pagamento e um suporte a diversos idiomas.
+
+\item[Vendas de produto:]  É previsto a inclusão de uma nova função relacionada à vendas de camisetas, fotos e DVD da conferência, sendo que o lucro obtido será repassado à instituições de caridade.
+
+\item[Aumento desempenho:]  Com o aumento do número de acessos simultâneos, o desempenho esperado e requerido nesse documento deverá continuar o mesmo. Sendo assim, é previsto a alteração de um ou mais componentes de hardware para tal momento. 
+\end{description}
 
 
 
