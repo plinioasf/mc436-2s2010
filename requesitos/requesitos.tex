@@ -72,7 +72,7 @@ Raquel Mayumi Kawamoto & RA: 086003 \\
 \section{Introdução}
 O propósito desse documento é descrever os requisitos do sistema
 de gerenciamento de Conferências Tecnológicas
-origanados pela técnica de levantamento de requisitos orientada a ponto de vista.
+originados pela técnica de levantamento de requisitos orientada a ponto de vista.
 Dentre os principais assuntos do documento temos:
 
 \begin{itemize}
@@ -92,7 +92,7 @@ Esse sistema se faz necessário uma vez que a quantidade de informação gerada 
 
 
 \subsubsection{Interação do usuário com o sistema}
-O usuário acessa o sistema através da internet. Qualquer usuário podeconsultar o cronograma da conferência. O usuário pode ser dividido em 3 categorias (não mutuamente exclusivas): A primeira diz respeito a possibilidade de submissão de papers para avaliação mediante inscrição e pagamento da taxa de submissão. Usuários também podem se inscrever como participantes mediante, com a finalidade de participar de palestras, workshops e afins. Por último, um usuário pode somente se cadastrar no site para uso do fórum para, por exemplo, busca de informações específicas sobre o evento.
+O usuário acessa o sistema através da internet. Qualquer usuário pode consultar o cronograma da conferência. O usuário pode ser dividido em 3 categorias (não mutuamente exclusivas): A primeira diz respeito a possibilidade de submissão de papers para avaliação mediante inscrição e pagamento da taxa de submissão. Usuários também podem se inscrever como participantes mediante, com a finalidade de participar de palestras, workshops e afins. Por último, um usuário pode somente se cadastrar no site para uso do fórum para, por exemplo, busca de informações específicas sobre o evento.
 
 \subsubsection{Interação do sistema com outros sistemas}
 
@@ -112,7 +112,7 @@ A primeira consiste em descobrir os pontos de vista que utilizam quais serviços
 
 \section{Mapeamento Pontos de Vistas/Serviços}
 
-Com o intuito de reconhecer as várias perpectivas e descobrir conflitos nos requisitos propostos, é realizado uma abordagem orientada a ponto de vista do sistema gerenciador de conferências tecnológicas.
+Com o intuito de reconhecer as várias perspectivas e descobrir conflitos nos requisitos propostos, é realizado uma abordagem orientada a ponto de vista do sistema gerenciador de conferências tecnológicas.
 
 
 \begin{center}
@@ -146,7 +146,7 @@ Com o intuito de reconhecer as várias perpectivas e descobrir conflitos nos req
 \hline 
 \multicolumn{2}{|c|}{\textbf{Apresentadores}}\tabularnewline
 \hline
-\textbf{Referência:} & Ap\'{r}esentadores\tabularnewline
+\textbf{Referência:} & Apresentadores\tabularnewline
 \textbf{Atributos} & Número de palestras/mini-cursos\tabularnewline
 \textbf{Eventos} & \tabularnewline
 \textbf{Serviços} & Editar trabalho submetido\tabularnewline
@@ -227,7 +227,7 @@ Com o intuito de reconhecer as várias perpectivas e descobrir conflitos nos req
 \textbf{Eventos} & \tabularnewline
 \textbf{Serviços} & \tabularnewline
  & Consultar informações de local/transporte\tabularnewline
- & Consultar estatísticasde fotos\tabularnewline
+ & Consultar estatísticas de fotos\tabularnewline
  & Acompanhar calendário \tabularnewline
  & Consultar mudanças\tabularnewline
  & Consultar palestrantes convidados\tabularnewline
@@ -248,7 +248,122 @@ Com o intuito de reconhecer as várias perpectivas e descobrir conflitos nos req
 %%%%%%%%%%%%%%%%%%%%%%%Mapeamento 
 
 \newpage
-Além disso, é realizada um mapeamento de serviços, cuja essência é ser independente da aplicação que o utiliza.
+\section{Requisitos Funcionais}
+
+Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e saídas, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
+
+\subsection{Inscrição Usuário}
+
+
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Inscrição}}\tabularnewline
+\hline
+\textbf{Referência:} & Inscrever participante\tabularnewline
+\textbf{Razão:} & Facilidade para os participantes\tabularnewline
+\textbf{Especificações:} & Entrar na área de cadastro\tabularnewline
+ & Digitar informações e efetuar o pagamento\tabularnewline
+\textbf{Pontos de vista:} & Participantes\tabularnewline
+\textbf{Requisito não funcional:} & Garantir privacidade das informações pessoais dos participantes \tabularnewline
+ & Garantir a segurança ao efetuar o pagamento\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+\textbf{Função:} Inscrição Usuário.
+
+\textbf{Fase: } Pré-Conferência.
+
+\textbf{Descrição: } O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
+
+\textbf{Entrada: } Dados do Usuário.
+
+\textbf{Saída: :} Confirmação de cadastro e identificador único gerado
+
+\textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a
+forma de pagamento escolhida.
+
+
+
+\subsection{ Submissão de Paper}
+
+
+%
+\begin{table}[h!]\begin{center}
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Submissão}}\tabularnewline
+\hline
+\textbf{Referência:} & Submeter trabalhos\tabularnewline
+\textbf{Razão:} & Facilidade para os participantes\tabularnewline
+\textbf{Especificações:} & Realizar upload de trabalhos na área apropriada\tabularnewline
+\textbf{Pontos de vista:} & Participantes\tabularnewline
+\textbf{Requisito não funcional:} & Garantir segurança. Isto é, apenas as pessoas autorizadas devem ter
+acesso aos trabalhos\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+
+\end{center}
+\end{table}
+
+
+\textbf{Função:} Submissão
+
+\textbf{Fase: } Pré-Conferência
+
+\textbf{Descrição: } O sistema deve permitir que o participante submeta papers via pagamento da taxa de submissão
+
+\textbf{Pré-condição: } O usuário deverá estar identificado no sistema com seu login
+
+\textbf{Entrada: } Identificador do Participante, Paper
+
+\textbf{Saída: :} Confirmação da submissão
+
+\textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a forma de pagamento escolhida.
+
+\subsection{ Avaliação e Envios de Comentários}
+
+%
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Comentar apresentação}}\tabularnewline
+\hline
+\textbf{Referência:} & Comentar apresentação\tabularnewline
+\textbf{Razão:} & Feedback para os apresentadores\tabularnewline
+\textbf{Especificações:} & Entrar na página de uma determinada apresentação\tabularnewline
+& e deixar comentários
+ou dúvidas para o autor\tabularnewline
+\textbf{Pontos de vista:} & Participantes\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\textbf{Função:} Comentários
+
+\textbf{Fase: } Conferência
+
+\textbf{Descrição: } O sistema deve permitir que o participante possa avaliar e enviar comentários para outros participantes ou apresentadores.
+
+\textbf{Pré-condição: } O usuário deverá estar identificado no sistema com seu login
+
+\textbf{Entrada: } Avaliação/Comentário gerado pelo participante
+
+\textbf{Saída: :} Disponibilização da entrada para os destinatários escolhidos pelo participante
+
+
+\subsection{ Consulta a informações de local/transporte}
 
 \begin{table}[h!]\begin{center}
 \begin{tabular}{|ll|}
@@ -257,7 +372,7 @@ Além disso, é realizada um mapeamento de serviços, cuja essência é ser inde
 \hline
 \textbf{Referência:} & Consultar local/transporte\tabularnewline
 \textbf{Razão:} & Informação para o público\tabularnewline
-\textbf{Especificações:} & Entrar na secção de informações sobre o local/transporte\tabularnewline
+\textbf{Especificações:} & Entrar na seção de informações sobre o local/transporte\tabularnewline
  & observar mapas\tabularnewline
  & informações sobre transporte público\tabularnewline
 \textbf{Pontos de vista:} & Público\tabularnewline
@@ -266,26 +381,19 @@ Além disso, é realizada um mapeamento de serviços, cuja essência é ser inde
 \hline\end{tabular}\end{center}
 \end{table}
 
+\textbf{Função:} Consulta a informações
 
-%
-\begin{table}[h!]\begin{center}
-\begin{tabular}{|ll|}
-\hline 
-\multicolumn{2}{|c|}{\textbf{Consultar palestrantes convidados}}\tabularnewline
-\hline
-\textbf{Referência:} & Consultar palestrantes convidados\tabularnewline
-\textbf{Razão:} & Informação para o público\tabularnewline
-\textbf{Especificações:} & Entrar na secção de informações sobre palestrantes convidados\tabularnewline
- & observar perfis\tabularnewline
- & páginas da web e outras informações disponíveis sobre os palestrantes\tabularnewline
-\textbf{Pontos de vista:} & Público\tabularnewline
-\textbf{Requisito não funcional:} & \tabularnewline
-\textbf{Provedor:} & \tabularnewline
-\hline\end{tabular}\end{center}
-\end{table}
+\textbf{Fase: } Pré-Conferência, Conferência
 
+\textbf{Descrição: } O sistema deve disponibilizar no site principais informações sobre meios de transporte, hotéis, mapas e afins.
 
-%
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+
+\textbf{Saída: :} Uma lista de hotéis e transportes para a conferência, assim como mapas para o local do evento.
+
+\newpage
+\subsection{ Busca de Eventos}
+
 \begin{table}[h!]\begin{center}
 \begin{tabular}{|ll|}
 \hline 
@@ -293,7 +401,7 @@ Além disso, é realizada um mapeamento de serviços, cuja essência é ser inde
 \hline
 \textbf{Referência:} & Consultar palestras\tabularnewline
 \textbf{Razão:} & Informação para o público\tabularnewline
-\textbf{Especificações:} & Entrar na secção de informações sobre palestras\tabularnewline
+\textbf{Especificações:} & Entrar na seção de informações sobre palestras\tabularnewline
  & visualizar as palestrar por áreas de interesse\tabularnewline
 \textbf{Pontos de vista:} & Público\tabularnewline
 \textbf{Requisito não funcional:} & \tabularnewline
@@ -302,21 +410,20 @@ Além disso, é realizada um mapeamento de serviços, cuja essência é ser inde
 \end{table}
 
 
-%
-\begin{table}[h!]\begin{center}
-\begin{tabular}{|ll|}
-\hline 
-\multicolumn{2}{|c|}{\textbf{Consultar mudanças}}\tabularnewline
-\hline
-\textbf{Referência:} & Consultar mudanças\tabularnewline
-\textbf{Razão:} & Informação para o público\tabularnewline
-\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
- & Observação do quadro de avisos\tabularnewline
-\textbf{Pontos de vista:} & Público\tabularnewline
-\textbf{Requisito não funcional:} & Deve ter destaque na página de modo que seja de fácil visualização\tabularnewline
-\textbf{Provedor:} & \tabularnewline
-\hline\end{tabular}\end{center}
-\end{table}
+
+\textbf{Função:} Busca de Eventos
+
+\textbf{Fase: } Pré-Conferência, Conferência
+
+\textbf{Descrição: } O sistema deve possuir um sistema de busca para que palestras, workshops e afins sejam achados pelo usuário. Nesse sistema de busca o usuário escolhe alguns atributos de pesquisa conforme sua preferência para achar o evento.
+
+\textbf{Entrada: } Conjunto de preferências do usuário em relação ao evento.
+
+\textbf{Saída: :} O sistema disponibiliza para o usuário uma lista de eventos conforme às preferências apontadas.
+
+
+
+\subsection{ Exibir Calendário}
 
 
 \begin{flushleft}
@@ -339,6 +446,27 @@ como um todo)\tabularnewline
 
 \par\end{flushleft}
 
+
+%
+
+
+
+\textbf{Função:} Exibição de eventos
+
+\textbf{Fase: } Pré-Conferência, Conferência
+
+\textbf{Descrição: } O sistema deve disponibilizar no site principal informações sobre alguns dos eventos disponíveis ou recomendados, contendo seu 
+nome, data e categoria na qual está incluso.
+
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a
+abertura do site.
+
+\textbf{Saída: :} Uma lista dos eventos.
+
+
+\newpage
+\subsection{Informações sobre publicações}
+
 %
 \begin{table}[h!]\begin{center}
 \begin{tabular}{|ll|}
@@ -355,6 +483,57 @@ como um todo)\tabularnewline
 \hline\end{tabular}\end{center}
 \end{table}
 
+
+
+\textbf{Função:} Exibição de informações sobre publicações
+
+\textbf{Fase: } Pós-Conferência
+
+\textbf{Descrição: } O sistema deve disponibilizar no site principal as informações sobre as publicações participantes do evento, contendo o nome do autor, título, categoria e breve descrição.
+
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a
+abertura do site.
+
+\textbf{Saída: :} Uma lista de características de publicações.
+
+
+
+\subsection{Editar Trabalhos Submetidos}
+
+%
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Editar}}\tabularnewline
+\hline
+\textbf{Referência:} & Editar o trabalho\tabularnewline
+\textbf{Razão:} & Assistência aos apresentadores\tabularnewline
+\textbf{Especificações:} & Realizar upload do trabalho editado na área apropriada\tabularnewline
+\textbf{Pontos de vista:} & Apresentador\tabularnewline
+\textbf{Requisito não funcional:} & Garantir segurança no acesso\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\textbf{Função:}  Editar
+
+\textbf{Fase:} Pré-Conferência
+
+\textbf{Descrição:} O sistema deve permitir que o usuário possa editar seu trabalho submetido, afim de gerar melhorias, mudar padrões, entre outros.
+
+\textbf{Pré-condição:}  O usuário deverá estar identificado no sistema com seu login e possuir um trabalho previamente submetido.
+
+\textbf{Entrada:}  Nenhuma entrada é requerida.
+
+\textbf{Saída:}  Trabalho atualizado.
+
+
+\newpage
+\subsection{Acesso a Galeria de Fotos/Vídeos}
 
 %
 \begin{table}[h!]\begin{center}
@@ -373,24 +552,87 @@ por data\tabularnewline
 \hline\end{tabular}\end{center}
 \end{table}
 
+
+
+\textbf{Função:} Acesso a Galeria
+
+\textbf{Fase: } Pós-Conferência
+
+\textbf{Descrição: } O sistema deve disponibilizar no site principal fotos e vídeos gerados durante a realização
+
+\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
+
+\textbf{Saída: :} Fotos e Videos da conferência.
+
+
+
+\subsection{ Avaliação de Trabalhos}
+
 %
 \begin{table}[h!]\begin{center}
 \begin{tabular}{|ll|}
 \hline 
-\multicolumn{2}{|c|}{\textbf{Consultar estatísticas}}\tabularnewline
+\multicolumn{2}{|c|}{\textbf{Avaliar trabalhos}}\tabularnewline
 \hline
-\textbf{Referência:} & Consultar estatísticas\tabularnewline
-\textbf{Razão:} & Informação para o público\tabularnewline
-\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
- & Possibilidade de visualização das estatísticas (número de participantes,
-público diário,\tabularnewline
- & avaliação das apresentações, popularidade de tópicos)\tabularnewline
-\textbf{Pontos de vista:} & Público\tabularnewline
-\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Referência:} & Avaliar trabalhos\tabularnewline
+\textbf{Razão:} & Facilidade para os avaliadores\tabularnewline
+\textbf{Especificações:} & Entrar com login e senha na seção de acesso dos avaliadores\tabularnewline
+ & Escolher uma área de interesse (assunto do trabalho)\tabularnewline
+
+ & Avaliar trabalho\tabularnewline
+\textbf{Pontos de vista:} & Avaliadores\tabularnewline
+\textbf{Requisito não funcional:} & Desígnio de trabalho para avaliadores deve ser de forma aleatória\tabularnewline
+ & Sorteio após no máximo um minuto da escolha da área de interesse\tabularnewline
 \textbf{Provedor:} & \tabularnewline
 \hline\end{tabular}\end{center}
 \end{table}
 
+
+
+\textbf{Função:} Avaliação de Trabalhos
+
+\textbf{Fase: } Pré-Conferência
+
+\textbf{Descrição: } O sistema deve permitir a avaliação de trabalhos submetidos por parte dos avaliadores
+
+\textbf{Entrada: } Trabalho avaliado pelo avaliador com os devidos comentários
+
+\textbf{Saída: :} Disponibilização da entrada para o autor do paper avaliado e para o coordenador.
+
+\newpage
+\subsection{ Recusa de Avaliação}
+
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Recusar avaliação}}\tabularnewline
+\hline
+\textbf{Referência:} & Recusar avaliação\tabularnewline
+\textbf{Razão:} & Facilidade para os avaliadores\tabularnewline
+\textbf{Especificações:} & Escolher opção \textquotedblleft{}rejeitar\textquotedblright{} para
+outro trabalho ser sorteado\tabularnewline
+\textbf{Pontos de vista:} & Avaliador\tabularnewline
+\textbf{Requisito não funcional:} & Novo trabalho deve ser sorteado após no máximo um minuto da desistência
+anterior\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
+\textbf{Função:} Recusa de Avaliação
+
+\textbf{Fase: } Pré-Conferência
+
+\textbf{Descrição: } O sistema deve permitir que um avaliador recuse a avaliação de um trabalho submetido mediante justificativa
+
+\textbf{Entrada: } Justificativa para a recusa de avaliação do trabalho
+
+\textbf{Saída: :} Redirecionamento do trabalho para outro avaliador
+
+
+
+
+\subsection{Consultar Gastos}
 
 %
 \begin{table}[h!]\begin{center}
@@ -409,253 +651,6 @@ público diário,\tabularnewline
 \end{table}
 
 
-%
-\begin{table}[h!]\begin{center}
-\begin{tabular}{|ll|}
-\hline 
-\multicolumn{2}{|c|}{\textbf{Inscrição}}\tabularnewline
-\hline
-\textbf{Referência:} & Inscrever participante\tabularnewline
-\textbf{Razão:} & Facilidade para os participantes\tabularnewline
-\textbf{Especificações:} & Entrar na área de cadastro\tabularnewline
- & Digitar informações e efetuar o pagamento\tabularnewline
-\textbf{Pontos de vista:} & Participantes\tabularnewline
-\textbf{Requisito não funcional:} & Garantir privacidade das informações pessoais dos participantes \tabularnewline
- & Garantir a segurança ao efetuar o pagamento\tabularnewline
-\textbf{Provedor:} & \tabularnewline
-\hline\end{tabular}\end{center}
-\end{table}
-
-
-%
-\begin{table}[h!]\begin{center}
-\begin{tabular}{|ll|}
-\hline 
-\multicolumn{2}{|c|}{\textbf{Submissão}}\tabularnewline
-\hline
-\textbf{Referência:} & Submeter trabalhos\tabularnewline
-\textbf{Razão:} & Facilidade para os participantes\tabularnewline
-\textbf{Especificações:} & Realizar upload de trabalhos na área apropriada\tabularnewline
-\textbf{Pontos de vista:} & Participantes\tabularnewline
-\textbf{Requisito não funcional:} & Garantir segurança. Isto é, apenas as pessoas autorizadas devem ter
-acesso aos trabalhos\tabularnewline
-\textbf{Provedor:} & \tabularnewline
-\hline\end{tabular}\end{center}
-\end{table}
-
-
-%
-\begin{table}[h!]\begin{center}
-\begin{tabular}{|ll|}
-\hline 
-\multicolumn{2}{|c|}{\textbf{Avaliar trabalhos}}\tabularnewline
-\hline
-\textbf{Referência:} & Avaliar trabalhos\tabularnewline
-\textbf{Razão:} & Facilidade para os avaliadores\tabularnewline
-\textbf{Especificações:} & Entrar com login e senha na secção de acesso dos avalidores\tabularnewline
- & avaliar trabalho\tabularnewline
- &  escolher uma área de interesse (assunto do trabalho)\tabularnewline
-\textbf{Pontos de vista:} & Avaliadores\tabularnewline
-\textbf{Requisito não funcional:} & Desígnio de trabalho para avaliadores deve ser de forma aleatória\tabularnewline
- & Sorteio após no máximo um minuto da escolha da área de interesse\tabularnewline
-\textbf{Provedor:} & \tabularnewline
-\hline\end{tabular}\end{center}
-\end{table}
-
-
-%
-\begin{table}[h!]\begin{center}
-\begin{tabular}{|ll|}
-\hline 
-\multicolumn{2}{|c|}{\textbf{Recusar avaliação}}\tabularnewline
-\hline
-\textbf{Referência:} & Recusar avaliação\tabularnewline
-\textbf{Razão:} & Facilidade para os avaliadores\tabularnewline
-\textbf{Especificações:} & Escolher opção \textquotedblleft{}rejeitar\textquotedblright{} para
-outro trabalho ser sorteado\tabularnewline
-\textbf{Pontos de vista:} & Avaliador\tabularnewline
-\textbf{Requisito não funcional:} & Novo trabalho deve ser sorteado após no máximo um minuto da desistência
-anterior\tabularnewline
-\textbf{Provedor:} & \tabularnewline
-\hline\end{tabular}\end{center}
-\end{table}
-
-
-\newpage
-\textcolor{white}{a}
-\newpage
-
-\textcolor{white}{a}
-\newpage
-\section{Requisitos Funcionais}
-
-Os requisitos funcionais do sistema é um dos resultados da aplicação de uma técnica de levantamento de requisitos. Esses requisitos funcionais descrevem as funções que o sistema deve fornecer e como lidar com as entradas e saídas, assim como apresentam os templates associados a cada ponto de vista/serviço. Os serviços disponíveis estão dispostos a seguir:
-
-\subsection{Inscrição Usuário}
-
-\textbf{Função:} Inscrição Usuário.
-
-\textbf{Fase: } Pré-Conferência.
-
-\textbf{Descrição: } O sistema deve permitir que o usuário se cadastre no site via pagamento da taxa de admissão.
-
-\textbf{Entrada: } Dados do Usuário.
-
-\textbf{Saída: :} Confirmação de cadastro e identificador único gerado
-
-\textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a
-forma de pagamento escolhida.
-
-
-
-\subsection{ Submissão de Paper}
-
-\textbf{Função:} Submissão
-
-\textbf{Fase: } Pré-Conferência
-
-\textbf{Descrição: } O sistema deve permitir que o participante submeta papers via pagamento da taxa de submissão
-
-\textbf{Pré-condição: } O usuário deverá estar identificado no sistema com seu login
-
-\textbf{Entrada: } Identificador do Participante, Paper
-
-\textbf{Saída: :} Confirmação da submissão
-
-\textbf{Requer:} Comunicação com a operadora de cartões, caso seja essa a forma de pagamento escolhida.
-
-\subsection{ Avaliação e Envios de Comentários}
-
-\textbf{Função:} Comentários
-
-\textbf{Fase: } Conferência
-
-\textbf{Descrição: } O sistema deve permitir que o participante possa avaliar e enviar comentários para outros participantes ou apresentadores.
-
-\textbf{Pré-condição: } O usuário deverá estar identificado no sistema com seu login
-
-\textbf{Entrada: } Avaliação/Comentário gerado pelo participante
-
-\textbf{Saída: :} Disponibilização da entrada para os destinatários escolhidos pelo participante
-
-
-\subsection{ Consulta a informações de local/transporte}
-
-\textbf{Função:} Consulta a informações
-
-\textbf{Fase: } Pré-Conferência, Conferência
-
-\textbf{Descrição: } O sistema deve disponibilizar no site principais informações sobre meios de transporte, hotéis, mapas e afins.
-
-\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
-
-\textbf{Saída: :} Uma lista de hotéis e transportes para a conferência, assim como mapas para o local do evento.
-
-
-\subsection{ Busca de Eventos}
-
-\textbf{Função:} Busca de Eventos
-
-\textbf{Fase: } Pré-Conferência, Conferência
-
-\textbf{Descrição: } O sistema deve possuir um sistema de busca para que palestras, workshops e afins sejam achados pelo usuário. Nesse sistema de busca o usuário escolhe alguns atributos de pesquisa conforme sua preferência para achar o evento.
-
-\textbf{Entrada: } Conjunto de preferências do usuário em relação ao evento.
-
-\textbf{Saída: :} O sistema disponibiliza para o usuário uma lista de eventos conforme às preferências apontadas.
-
-
-
-\subsection{ Exibir Calendário}
-
-\textbf{Função:} Exibição de eventos
-
-\textbf{Fase: } Pré-Conferência, Conferência
-
-\textbf{Descrição: } O sistema deve disponibilizar no site principal informações sobre alguns dos eventos disponíveis ou recomendados, contendo seu 
-nome, data e categoria na qual está incluso.
-
-\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a
-abertura do site.
-
-\textbf{Saída: :} Uma lista dos eventos.
-
-
-
-\subsection{Informações sobre publicações}
-
-\textbf{Função:} Exibição de informações sobre publicações
-
-\textbf{Fase: } Pós-Conferência
-
-\textbf{Descrição: } O sistema deve disponibilizar no site principal as informações sobre as publicações participantes do evento, contendo o nome do autor, título, categoria e breve descrição.
-
-\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a
-abertura do site.
-
-\textbf{Saída: :} Uma lista de características de publicações.
-
-
-
-\subsection{Editar Trabalhos Submetidos}
-
-\textbf{Função:}  Editar
-
-\textbf{Fase:} Pré-Conferência
-
-\textbf{Descrição:} O sistema deve permitir que o usuário possa editar seu trabalho submetido, afim de gerar melhorias, mudar padrões, entre outros.
-
-\textbf{Pré-condição:}  O usuário deverá estar identificado no sistema com seu login e possuir um trabalho previamente submetido.
-
-\textbf{Entrada:}  Nenhuma entrada é requerida.
-
-\textbf{Saída:}  Trabalho atualizado.
-
-
-
-\subsection{Acesso a Galeria de Fotos/Vídeos}
-
-\textbf{Função:} Acesso a Galeria
-
-\textbf{Fase: } Pós-Conferência
-
-\textbf{Descrição: } O sistema deve disponibilizar no site principal fotos e vídeos gerados durante a realização
-
-\textbf{Entrada: } Nenhuma entrada é requerida, sendo somente necessário a abertura do site.
-
-\textbf{Saída: :} Fotos e Videos da conferência.
-
-
-
-\subsection{ Avaliação de Trabalhos}
-
-\textbf{Função:} Avaliação de Trabalhos
-
-\textbf{Fase: } Pré-Conferência
-
-\textbf{Descrição: } O sistema deve permitir a avaliação de trabalhos submetidos por parte dos avaliadores
-
-\textbf{Entrada: } Trabalho avaliado pelo avaliador com os devidos comentários
-
-\textbf{Saída: :} Disponibilização da entrada para o autor do paper avaliado e para o coordenador.
-
-
-\subsection{ Recusa de Avaliação}
-
-\textbf{Função:} Recusa de Avaliação
-
-\textbf{Fase: } Pré-Conferência
-
-\textbf{Descrição: } O sistema deve permitir que um avaliador recuse a avaliação de um trabalho submetido mediante justificativa
-
-\textbf{Entrada: } Justificativa para a recusa de avaliação do trabalho
-
-\textbf{Saída: :} Redirecionamento do trabalho para outro avaliador
-
-
-
-
-\subsection{Consultar Gastos}
 \textbf{Função:}  Consultar Gastos
 
 \textbf{Fase:}  Pós-Conferência
@@ -668,7 +663,25 @@ abertura do site.
 
 \textbf{Saída:}  Tabela com os dados dos gastos gerados pela conferência.
 
+\newpage
 \subsection{Consultar Mudanças}
+
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar mudanças}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar mudanças\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Observação do quadro de avisos\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & Deve ter destaque na página de modo que seja de fácil visualização\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
 
 \textbf{Função:}  Consultar Mudanças
 
@@ -682,6 +695,24 @@ abertura do site.
 
 \subsection{Consultar Palestrantes Convidados}
 
+%
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar palestrantes convidados}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar palestrantes convidados\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Entrar na seção de informações sobre palestrantes convidados\tabularnewline
+ & observar perfis\tabularnewline
+ & páginas da web e outras informações disponíveis sobre os palestrantes\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
+
 \textbf{Função:}  Consultar Palestrantes Convidados
 
 \textbf{Fase:}  Pré-Conferência
@@ -692,8 +723,27 @@ abertura do site.
 
 \textbf{Saída:}  O sistema disponibiliza para o usuário uma lista conforme às informações apontadas.
 
-
+\newpage
 \subsection{Consultar estatísticas}
+
+
+\begin{table}[h!]\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Consultar estatísticas}}\tabularnewline
+\hline
+\textbf{Referência:} & Consultar estatísticas\tabularnewline
+\textbf{Razão:} & Informação para o público\tabularnewline
+\textbf{Especificações:} & Acesso direto pelo website\tabularnewline
+ & Possibilidade de visualização das estatísticas (número de participantes,
+público diário,\tabularnewline
+ & avaliação das apresentações, popularidade de tópicos)\tabularnewline
+\textbf{Pontos de vista:} & Público\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline\end{tabular}\end{center}
+\end{table}
+
 
 \textbf{Função:}  Consultar estatísticas
 
@@ -708,6 +758,30 @@ abertura do site.
 
 \subsection{Alterar Calendário}
 
+
+%
+\begin{table}[h!]
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Alterar calendário}}\tabularnewline
+\hline
+\textbf{Referência:} & Alterar calendário\tabularnewline
+\textbf{Razão:} & Facilidade para os coordenadores, assim como para os participantes\tabularnewline
+\textbf{Especificações:} & Com acesso restrito aos coordenadores (login e senha), é possível
+alterar o calendário.\tabularnewline
+ &  A alteração deve também ser apresentada num quadro de avisos com
+destaque no website.\tabularnewline
+\textbf{Pontos de vista:} & Coordenadores \tabularnewline
+\textbf{Requisito não funcional:} & As mudanças devem ser atualizadas de imediato\tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
 \textbf{Função:} Alterar Calendário
 
 \textbf{Fase:}  Conferência
@@ -721,8 +795,29 @@ abertura do site.
 \textbf{Saída:}  Mudanças em destaque no site e o calendário atualizado.
 
 
-
+\newpage
 \subsection{Classificar palestras}
+
+
+
+\begin{table}[h!]
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Classificar palestras}}\tabularnewline
+\hline
+\textbf{Referência:} & Classificar palestras por áreas de interesse\tabularnewline
+\textbf{Razão:} & Facilidade para os coordenadores, assim como para os participantes\tabularnewline
+\textbf{Especificações:} & Coordenadores classificam palestras em relação às áreas as quais\tabularnewline
+ &  estas pertencem (utilização de palavras-chave)\tabularnewline
+\textbf{Pontos de vista:} & Coordenadores\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \textbf{Função:} Classificar palestras quanto às suas áreas/categorias
 
@@ -740,6 +835,28 @@ abertura do site.
 
 \subsection{Transformar Documentos Dinâmicos em Estáticos}
 
+
+
+%
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Transformar documentos dinâmicos em estáticos}}\tabularnewline
+\hline
+\textbf{Referência:} & Transformar documentos dinâmicos em estáticos\tabularnewline
+\textbf{Razão:} & Encerramento da conferência\tabularnewline
+\textbf{Especificações:} & Coordenadores impedem que sejam editados\tabularnewline
+& ou inseridos novos conteúdos (trabalhos, notas, etc.)\tabularnewline
+ &  no website após uma determinada data\tabularnewline
+\textbf{Pontos de vista:} & Coordenadores\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 \textbf{Função:} Transformar Documentos Dinâmicos em Estáticos
 
 \textbf{Fase:}  Pós-Conferência
@@ -752,8 +869,31 @@ abertura do site.
 
 \textbf{Saída:}  Documentos Estáticos
 
-
+\newpage
 \subsection{Divulgar slides e notas}
+
+
+\begin{table}[h!]
+
+\begin{center}
+\begin{tabular}{|ll|}
+\hline 
+\multicolumn{2}{|c|}{\textbf{Divulgar slides e notas}}\tabularnewline
+\hline
+\textbf{Referência:} & Divulgar slides e notas\tabularnewline
+\textbf{Razão:} & Encerramento da conferência\tabularnewline
+\textbf{Especificações:} &  Coordenadores disponibilizam no website o conteúdo
+(estático) livremente\tabularnewline
+ & ou inserem informações de como adquirir publicações referentes a conferência\tabularnewline
+\textbf{Pontos de vista:} & Coordenadores\tabularnewline
+\textbf{Requisito não funcional:} & \tabularnewline
+\textbf{Provedor:} & \tabularnewline
+\hline
+\end{tabular}
+
+\end{center}
+\end{table}
+
 
 \textbf{Função:} Divulgar slides e notas
 
@@ -766,6 +906,8 @@ abertura do site.
 \textbf{Entrada:}  Dados e documentos a serem inseridos.
 
 \textbf{Saída:}  Mudanças devem aparecer no site na seção de cada palestrante.
+
+%
 
  
 
@@ -790,14 +932,14 @@ A quantidade de falhas apresentadas pelo sistema deve ser inferior a 5 falhas\ m
 
 \textbullet\hspace{1mm} Disponibilidade
 
-O sistema deve estar disponível todo o tempo, com a tolerância miníma para as falhas.
+O sistema deve estar disponível todo o tempo, com a tolerância mínima para as falhas.
 
 
 \subsection{Robustez}
 \textbullet\hspace{1mm} Tempo de reinício
 
-Após uma falha, durante o período de pré-conferência, o sistema deverá voltar a estar disponivel em um tempo t, tal que t $\leq$ 15 minutos .
-Após uma falha, durante o período de conferência, o sistema deverá voltar a estar disponivel em um tempo t, tal que t $\leq$ 2 minutos .
+Após uma falha, durante o período de pré-conferência, o sistema deverá voltar a estar disponível em um tempo t, tal que t $\leq$ 15 minutos .
+Após uma falha, durante o período de conferência, o sistema deverá voltar a estar disponível em um tempo t, tal que t $\leq$ 2 minutos .
 
 \textbullet\hspace{1mm} Probabilidade corromper dados/falha
 
@@ -810,7 +952,7 @@ Dentre as mudanças previstas tem-se:
 
 \begin{description}
 
-\item[Suporte à conferências internacionais:]  O sistema poderá oferecer suporte a conferências internacionais, com pagamento em moeda es trangeira. Para isso será necessário uma adaptação no mecanismo de venda, pagamento e um suporte a diversos idiomas.
+\item[Suporte à conferências internacionais:]  O sistema poderá oferecer suporte a conferências internacionais, com pagamento em moeda estrangeira. Para isso será necessário uma adaptação no mecanismo de venda, pagamento e um suporte a diversos idiomas.
 
 \item[Vendas de produto:]  É previsto a inclusão de uma nova função relacionada à vendas de camisetas, fotos e DVD da conferência, sendo que o lucro obtido será repassado à instituições de caridade.
 
@@ -818,6 +960,52 @@ Dentre as mudanças previstas tem-se:
 \end{description}
 
 
+
+%% Análise de riscos%%
+
+\section{Análise de riscos}
+
+O primeiro passo, para diminuir os ricos do projeto, a fim de evitar falhas, é identificá-los. Portanto, foi realizado uma avaliação de sua probabilidade e seriedade  (tabela \ref{r1} ). Posteriormente , foi necessário fazer um planejamento para os riscos (tabela \ref{r2} ).
+ 
+
+\begin{table}[h!]
+\begin{tabular}{clll}
+\hline 
+Tipo de risco & Riscos possíveis & Probabilidade & Efeitos\tabularnewline
+\hline
+\hline 
+\multirow{2}{*}{Tecnologia}
+ & O número de transações processadas por segundo suportado & Baixa & Sérios\tabularnewline
+ & pelo banco de dados no sistema é insuficiente. &  & \tabularnewline
+\multirow{2}{*}{Pessoal} & O treinamento necessário para o pessoal não está disponível. & Baixa & Sérios\tabularnewline
+ & A pessoa que possuem conhecimento específico não está disponível. & Média & Sérios\tabularnewline
+\multirow{2}{*}{Requisitos} & Mudanças de requisitos que requerem retrabalho & Alta & Catastróficos\tabularnewline
+ &  maior do projeto são propostas. &  & \tabularnewline
+\multirow{2}{*}{Estimativas} & O prazo necessário para desenvolver o software foi subestimado. & Alta & Sérios\tabularnewline
+ & O tamanho do software foi subestimado. & Alta & Toleráveis\tabularnewline
+\hline
+\end{tabular}
+
+\caption{Análise de riscos}
+\label{r1}
+\end{table}
+%
+\begin{table}[h!]
+\begin{tabular}{ll}
+\hline 
+Risco & Estratégia\tabularnewline
+\hline
+\hline 
+Indisponibilidade de pessoal & As pessoas da equipe devem compreender as tarefas uns dos outros.\tabularnewline
+Prazo de desenvolvimento subestimado & Verificar a compra de componentes.\tabularnewline
+Desempenho banco de dados & Verificar a possibilidade de usar um banco de dados melhor.\tabularnewline
+\hline
+\end{tabular}
+
+\caption{Estratégia de gerenciamento de risco}
+\label{r2}
+
+\end{table}
 
 
 \section{Glossário}
