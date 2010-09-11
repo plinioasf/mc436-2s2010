@@ -6786,7 +6786,20 @@ Facilidade de uso
 \end_layout
 
 \begin_layout Standard
-•Tempo de treinamento
+•
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1mm}
+\end_layout
+
+\end_inset
+
+Tempo de treinamento
 \end_layout
 
 \begin_layout Standard
@@ -6820,6 +6833,7 @@ hspace{1mm}
 
 \begin_layout Standard
 A quantidade de falhas apresentadas pelo sistema deve ser inferior a 5 falhas
+ por
 \begin_inset space \space{}
 \end_inset
 
@@ -6846,6 +6860,28 @@ hspace{1mm}
 \begin_layout Standard
 O sistema deve estar disponível todo o tempo, com a tolerância mínima para
  as falhas.
+\end_layout
+
+\begin_layout Standard
+•
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1mm}
+\end_layout
+
+\end_inset
+
+ Prevenção de erros
+\end_layout
+
+\begin_layout Standard
+Cada função do sistema deve passar por um minusioso sistema de avaliação
+ e remoção de erros n vezes antes de ser utilizado, tal que n > 5.
 \end_layout
 
 \begin_layout Subsection
@@ -6902,7 +6938,9 @@ hspace{1mm}
 \end_layout
 
 \begin_layout Standard
-Os dados salvos não devem ser corrompidos por uma falha.
+Os dados salvos de um usuário não deve ser corrompido por uma falha do sistema.
+ Porém, dados de formulários podem ser perdidos por uma falha, mas nunca
+ poderão ser alterados e salvos.
 \end_layout
 
 \begin_layout Section
@@ -7838,6 +7876,19 @@ oleráveis
 \end_layout
 
 \end_deeper
+\begin_layout Description
+Falhas Um sistema falha quando deixa de ser conforme a seus requerimentos,
+ ou seja, quando ele faz o que não deveria fazer ou quando não faz o que
+ deveria fazer.
+ Pode ser uma falha pequena, que seria corrigida rapidamente ou uma falha
+ catastrófica que poderia levar de semans a meses para a sua correção.
+ O software de um sistema pode falhar por causa de erros em sua especificação,
+ projeto ou implementação.
+ O hardware do sistema pode falhar por causa de erros em seu projeto, de
+ falhas de componentes resultantes de erros de frabricação, ou de componente
+ que atingiram o fim de sua vida útil.
+\end_layout
+
 \begin_layout Description
 Gerenciamento 
 \series bold
