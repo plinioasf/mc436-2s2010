@@ -1,4 +1,4 @@
-file=requesitos
+file=requisitos
 file2=mindmap
 make:
 	latex $(file).tex
