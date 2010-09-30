@@ -1,0 +1,2 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Exemple de diagramme des cas d'utilisation}{2}{section.1}

@@ -78,10 +78,10 @@ Raquel Mayumi Kawamoto & RA: 086003 \\
 \cite_engine basic
 \use_bibtopic false
 \paperorientation portrait
-\leftmargin 2cm
-\topmargin 3cm
-\rightmargin 2cm
-\bottommargin 3cm
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -280,7 +280,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename desenho.pdf
-	scale 75
+	scale 90
 	rotateAngle 270
 
 \end_inset
@@ -6941,6 +6941,28 @@ hspace{1mm}
 Os dados salvos de um usuário não deve ser corrompido por uma falha do sistema.
  Porém, dados de formulários podem ser perdidos por uma falha, mas nunca
  poderão ser alterados e salvos.
+\end_layout
+
+\begin_layout Standard
+•
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1mm}
+\end_layout
+
+\end_inset
+
+Tolerância a defeitos
+\end_layout
+
+\begin_layout Standard
+Deve ser utilizado ferramentas de autoverificação no sistema, de modo que
+ diminua em 50% a probabilidade de que um erro de sistema resultar em falha.
 \end_layout
 
 \begin_layout Section

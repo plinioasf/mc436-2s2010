@@ -1,0 +1,89 @@
+%-%-%-%--%-%-%-%-%-%--%-%-%--%-%
+% Author  : Tiago Chedraoui Silva
+% License : GNU GPL v.3
+% Title   : Mapa mental
+% Tags    : mindmap, layers
+%-%-%-%-%-%-%-%-%-%--%-%-%-%-%-%
+\documentclass[11pt,a4paper,twoside]{article}
+%\usepackage[paperheight=25cm,left=1cm,top=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{pst-uml}
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+  \resizebox{0.9\linewidth}{!}{%
+    \begin{pspicture}(0,0.5)(15,13.5)%\psgrid
+      \psset{framesep=0}
+      \psframe[linewidth=0.5pt, linestyle=dashed](3,14)(12,0.5)
+      \rput(7.5,1){\Large Sistema em desenvolvimento}
+      \rput(1,12){\rnode{pl}{\umlActor{Participantes}}}
+      \rput(1,6){\rnode{cl}{\umlActor{Coordenador}}}
+      \rput(1,9){\rnode{al}{\umlActor{Avaliador}}}
+      
+      \rput(14,11.5){\rnode{ar}{\umlActor{Avaliador}}}
+      \rput(14,6){\rnode{cr}{\umlActor{Coordenador}}}
+      \rput(14,9){\rnode{pr}{\umlActor{Participantes}}}
+      
+      \rput(18,9){\rnode{usrl}{\umlActor{Público}}}
+      \rput(-2,9){\rnode{usrr}{\umlActor{Público}}}
+      
+      \ncline{usrl}{ar}
+      \ncputicon{umlHerit}
+      \ncline{usrl}{pr}
+      \ncputicon{umlHerit}
+      \ncline{usrl}{cr}
+      \ncputicon{umlHerit}
+
+      \ncline{usrr}{pl}
+      \ncputicon{umlHerit}
+      \ncline{usrr}{cl}
+      \ncputicon{umlHerit}
+      \ncline{usrr}{al}
+      \ncputicon{umlHerit}
+      
+      \umlPutCase{10,8}{lgi}{Login}
+      \umlPutCase{10,10}{lgo}{Logout}
+      \umlPutCase{5,3}{fdb}{Visualizar\\feedback}
+      \umlPutCase{10,3}{vin}{Visualizar\\informações}
+      \umlPutCase{5,13}{vce}{Vizualizar\\ certificados}
+      \umlPutCase{5,7}{gce}{Gerar\\ certificados }
+      \umlPutCase{5,9}{vpa}{Validar\\papers }
+      \umlPutCase{5,11}{dfdb}{Dar\\ feedback }
+      \umlPutCase{8,7}{vts}{Vizualizar\\ trabalhos\\ submetidos}
+      \ncline{pl}{dfdb}
+      \ncline{cl}{gce}
+      \ncline{al}{vpa}
+      \ncline{pl}{vce}
+
+      \ncSHS[armA=3.4]{usrl}{vin}
+      \ncSHS[armA=3.4]{usrr}{fdb}
+      \newpsstyle{umlDependance}{%
+        linestyle=dashed,
+        arrows=->,
+        arrowscale=3,
+        arrowinset=0.6
+      }
+      \ncline[style=umlDependance,offset=-0.5]{vts}{vpa}
+      \naput{<<includes>>}
+      
+      % 
+      % Login
+      % 
+      \ncline{ar}{lgi}
+      \ncline{cr}{lgi}
+      \ncline{pr}{lgi}
+
+      % 
+      % Logout
+      % 
+      \ncline{ar}{lgo}
+      \ncline{cr}{lgo}
+      \ncline{pr}{lgo}
+    \end{pspicture}
+  }%end resizeORscalebox
+\end{center}
+
+
+\end{document}
