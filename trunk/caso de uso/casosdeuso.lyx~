@@ -1,0 +1,744 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+% MC436 Engenharia de Software                    %  
+% Projeto : Sistema de gerenciamento              %
+% de conferências técnicas                        %
+% Data:18/08/2010                                 %
+% Unicamp,Campinas,São Paulo,Brasil               % 
+% Grupo:                                          %
+% - Mariana Mendes Caspirro                       % 
+% - Murilo Fossa Vicentini                        % 
+% - Plinio Augusto Soriano Freire                 %
+% - Tiago Chedraoui Silva                         %
+% - Raquel Mayume Kawamoto                        % 
+%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%-%
+
+
+%%% fontes %%%
+% dá suporte para os termos na língua portuguesa do Brasi
+% acentuação
+\usepackage{ae}\usepackage{aecompl}\usepackage{aeguill}% pdfs mais bonitos =)
+
+%%% outros %%%
+\usepackage{multirow}\@ifundefined{definecolor}
+ {\usepackage{color}}{}
+\usepackage{indentfirst}% retira padrao americano de paragrafos
+\usepackage{multicol}\usepackage[linkbordercolor={1 1 1},urlcolor=black,colorlinks=false]{hyperref}% links
+
+
+\usepackage{cite}% Needed to use citations.  
+\usepackage{indentfirst}%retira padrao americano de paragrafos
+\usepackage{ae}\usepackage{aecompl}\usepackage{pslatex}\usepackage{epsfig}\usepackage{pstricks}
+
+
+%%% extras %%%
+\RequirePackage{marvosym} % figuras \Letter \Email 
+\usepackage{fancyhdr}% Headers
+\usepackage{epsf}
+\usepackage{pst-uml}
+
+
+% Capa estilizada %
+\newcommand*{\titleTMB}{\begingroup \centering \settowidth{\unitlength}{\LARGE MC 613} \vspace*{\baselineskip} {\large\scshape  Turma A}\\[\baselineskip] \rule{11.0cm}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} \rule{11.0cm}{0.4pt}\\[\baselineskip] {\LARGE Casos de uso de um }\\[0.2\baselineskip] {\LARGE Sistema de gerenciamento de Conferências Tecnológicas }\\[0.2\baselineskip] {\itshape MC 436 - Engenharia de Software - Segundo Semestre de 2010}\\[0.2\baselineskip] \rule{11.0cm}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} \rule{11.0cm}{1.6pt}\\[\baselineskip] {\large\scshape Professora: Ariadne Maria Brito Rizzoni Carvalho}\par \vfill {\normalsize   \scshape 
+    \begin{center} 
+      \begin{tabular}{  l  l  p{5cm} } 
+        Mariana Mendes Caspirro & RA: 082204\\
+        Murilo Fossa Vicentini & RA: 082335 \\
+        Plinio Augusto Soriano Freire & RA:  082505\\
+        Tiago Chedraoui Silva  & RA: 082941\\
+Raquel Mayumi Kawamoto & RA: 086003 \\    
+  \end{tabular} \end{center}
+    \itshape \today }\\[\baselineskip] \vspace{3.2pt} \endgroup}
+\end_preamble
+\options letter
+\use_default_options false
+\language brazilian
+\inputencoding utf8
+\font_roman ae
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 4cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+titleTMB
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introdução
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Descrição dos Atores
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\lang english
+Público
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Ator capaz de interagir com o sistema realizando as seguintes
+ operações: visualizar informações, visualizar feedback.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\lang english
+Participantes 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Ator que é “Público”, mas fez inscrição na Conferência.
+ Sendo assim é capaz também de: login, logout, dar feedback, visualizar
+ certificado.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Avaliadores 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Ator que é “Público”, mas faz parte da Conferência avaliando
+ trabalhos.
+ É capaz também de: login, logout, visualizar trabalhos submetidos, validar
+ papers que serão divulgados.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Coordenadores
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Ator que é “Público” e toma conta somente da coordenação.
+ É capaz também de: login, logout, gerar certificados.
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Casos de Uso
+\end_layout
+
+\begin_layout Subsection
+Login
+\end_layout
+
+\begin_layout Standard
+Nome: Login 
+\end_layout
+
+\begin_layout Standard
+Descrição: Este caso de uso começa quando o usuário seleciona o serviço
+ de Login e termina quando o sistema autoriza a entrada.
+\end_layout
+
+\begin_layout Standard
+Atores: Participantes, Avaliadores e Coordenadores.
+ 
+\end_layout
+
+\begin_layout Standard
+Pré-Condição: O usuário deve ter se inscrito na Conferência, ou ter inscrição
+ por Avaliador, ou ainda ser um Coordenador do evento.
+ 
+\end_layout
+
+\begin_layout Standard
+Pós-condição: Usuário está logado no sistema.
+ 
+\end_layout
+
+\begin_layout Standard
+Requisitos funcionais: Login 
+\end_layout
+
+\begin_layout Standard
+Requisitos não funcionais: Segurança e facilidade de uso
+\end_layout
+
+\begin_layout Standard
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+1.
+ O usurário fornece username e senha.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ Dados são conferidos.
+ 
+\end_layout
+
+\begin_layout Standard
+3.
+ Se senha não confere com o username, então executa o fluxo alternativo
+ A1.
+ 
+\end_layout
+
+\begin_layout Standard
+4.
+ Login é efetuado com sucesso.
+ 
+\end_layout
+
+\begin_layout Standard
+Fluxos Alternativos: 
+\end_layout
+
+\begin_layout Standard
+A1.
+ O usuário fornece os dados corretos.
+ O fluxo retorna ao ponto onde parou.
+\end_layout
+
+\begin_layout Subsection
+Logout
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Logout
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Este caso de uso começa quando o usuário seleciona o serviço
+ de Logout e termina quando ele é desconectado do sistema.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Participantes, Avaliadores e Coordenadores.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: O usuário deve estar logado no sistema.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição: Usuário deslogado do sistema.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos funcionais: Logout e facilidade de uso
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos não funcionais: Segurança, facilidade de uso
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ Usuário seleciona opção de deslogar.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ Sistema efetua o logout.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ Logout é efetuado com sucesso.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxos Alternativos:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Não há.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Visualizar trabalhos submetidos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Visualizar trabalhos submetidos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Usuário seleciona o serviço de Visualizar trabalhos submetidos
+ e o sistema retorna a lista completa dos trabalhos.
+ O avaliador acessa algum desses trabalhos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Avaliadores.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: Estar logado na condição de avaliador.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição: Visualização em tela da lista de trabalhos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos Funcionais: Visualizar trabalhos submetidos
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos Não Funcionais: Facilidade de uso, desempenho
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ Usuário seleciona o serviço de visualizar trabalhos submetidos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ Sistema mostra na tela uma lista com trabalhos submetidos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ Avaliador seleciona trabalho.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+4.
+ Sistema exibe trabalho.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Alternativo:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Não há.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Gerar certificados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Gerar certificados (para palestrantes e participantes)
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O coordenador seleciona o Serviço de Gerar Certificado para os
+ palestrantes e os participantes devidamente cadastrados (ou seja com a
+ taxa paga)
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Coordenador
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: Estar logado na condição de coordenador
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição: Certificados Gerados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos funcionais: Gerar certificados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos não funcionais: Confiabilidade, robustez
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ O coordenador seleciona o tipo de certificado a ser gerado (palestrante
+ ou participante)
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ O sistema verifica se o usuário para o qual o certificado será gerado está
+ devidamente cadastrado.
+ Caso não executa o fluxo alternativo E1.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ O sistema gera o certificado e envia uma mensagem de confirmação para o
+ coordenador.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Alternativo: Não há
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo de Exceção:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+E1.
+ O sistema informa ao coordenador que o usuário não está devidamente cadastrado.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Visualizar Certificados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Visualizar Certificados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O usuário entra faz requisição de visualização do certificado
+ de participação e o sistema retorna o certificado requerido em formato
+ para possível impressão 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Participantes e Palestrantes.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: O usuário deve ter se inscrito na Conferência e deve estar
+ logado no sistema .
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-condição: O usuário pode visualizar certificado em formato para possível
+ impressão.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos funcionais: Visualizar certificados.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos não funcionais: Facilidade de uso
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ O usuário faz requerimento de seu certificado.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ O sistema retorna o certificado em formato imprimível.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxos Alternativos: Não há.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+Mapeamento Pontos de Vistas/Serviços
+\end_layout
+
+\begin_layout Standard
+A figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sistema-de-gerenciamento"
+
+\end_inset
+
+ mostra o resultado obtido através da aplicação da técnica de extração de
+ requesitos de ponto de vistas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Sistema de gerenciamento de conferência tecnológica.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sistema-de-gerenciamento"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Referências
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Ian Sommerville Software engineering.Addison-Wesley, 2001.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+ Roger S.
+ Pressman Software engineering.McGraw Hill Higher Education, 2000.
+ 
+\end_layout
+
+\end_body
+\end_document
