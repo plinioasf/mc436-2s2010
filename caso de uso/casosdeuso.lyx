@@ -1373,18 +1373,6 @@ Diagrama casos de uso
 \end_layout
 
 \begin_layout Standard
-A figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Sistema-de-gerenciamento"
-
-\end_inset
-
- mostra o resultado obtido através da aplicação da técnica de extração de
- requesitos de ponto de vistas.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -1427,9 +1415,6 @@ name "fig:Sistema-de-gerenciamento"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
 
 \end_layout
 

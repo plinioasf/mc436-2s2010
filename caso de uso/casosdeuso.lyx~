@@ -644,24 +644,736 @@ Fluxo Básico:
 Fluxos Alternativos: Não há.
 \end_layout
 
+\begin_layout Subsection
+
+\lang english
+Dar feedback
+\end_layout
+
 \begin_layout Standard
 
+\lang english
+Nome: Dar feedback
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Começa quando o usuário deseja dar feedback sobre determinada
+ palestra ou sobre a conferência em geral.
+ Termina após a submissão do feedback.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Participantes.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: Estar logado como participante.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição:Feedback enviado.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos Funcionais: Comentar apresentação
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos Não Funcionais: Confiabilidade, robustez, facilidade de uso
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ Usuário seleciona o serviço de Comentar apresentação.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ O sistema carrega uma caixa de texto na qual o usuário pode dar uma nota
+ e/ou escrever comentários.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ O usuário pode desistir do envio.
+ Caso isso aconteça, vai para o fluxo alternativo A1.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ O usuário escreve o que deseja comentar e envia.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+4.
+ O sistema recebe o comentário e informa ao usuário o seu recebimento.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Alternativo:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A1.
+ O usuário cancela o envio e termina.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Visualizar Feedback 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Visualizar Feedback (resumo e estatísticas)
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O usuário pode visualizar os feedbacks gerados até o momento.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Público
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: Não há
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição: Resumo e estatísticas
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos funcionais: Consultar estatística.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos não funcionais: Facilidade de uso
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ O usuário deve selecionar o serviço de Consultar estatística.
+ A seguir, deve escolher a área (conferência, palestras, palestrantes) da
+ qual o feedback a ser visto pertence.
+ Caso seja palestras e palestrantes executa o fluxo alternativo A1.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ O sistema gera um resumo dos feedbacks e estatisticas sobre o pedido do
+ usuário.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Alternativo:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A1.
+ O usuário deve novamente selecionar uma dentre as opções disponíveis sobre
+ a área escolhida (palestras existentes em palestras e os palestrantes existente
+s em palestrantes).
+ Retorna para o ponto do fluxo básico onde foi chamado.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Validar papers que serão divulgados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Validar papers que serão divulgados
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O caso de uso começa quando o usuário seleciona o serviço de
+ Visualizar Trabalhos Submetidos e termina quando o trabalho foi validado.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Avaliadores.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: O usuário deve estar logado na condição de avaliador.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição: O trabalho é validado.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos funcionais: Validar Trabalhos, Rejeitar Validação
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos não funcionais: Segurança, confiabilidade e robustez
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ include Visualizar trabalhos submetidos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ O usuário seleciona o serviço de Validar Trabalho.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ Caso o usuário não deseja validar, vai para o fluxo alternativo A1.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+4.
+ O sistema informa o usuário que o paper foi validado.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Alternativo:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A1.
+ O usuário seleciona o serviço de Rejeitar Validação e o sistema informa
+ as irregularidades.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A2.
+ O sistema informa ao autor que o paper não foi validado e suas irregularidades.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Visualizar informações
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nome: Visualizar informações (fotos e papers)
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O caso de uso começa quando o usuário seleciona os serviços de
+ Consultar publicação e de Acessar galeria de fotos e termina quando este
+ deseja parar a visualização.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Atores: Público.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-Condição: Não há.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pós-Condição: Não há.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos funcionais: Consultar publicação e Acessar galeria de fotos
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Requisitos não funcionais: Facilidade de uso
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Básico:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+1.
+ O usuário seleciona os serviços Consultar publicação ou Acessar galeria
+ de fotos
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+2.
+ Se for selecionado o serviço de Consultar publicação, o sistema carrega
+ uma lista com todos os papers ou publicações feitas referentes a conferencia
+ com links de downloads e onde comprar (as publicações).
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3.
+ Se for selecionado o serviço de Acessar galeria de fotos, o sistema carrega
+ uma galeria de fotos.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fluxo Alternativo:
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Não há
 \end_layout
 
 \begin_layout Section
-Mapeamento Pontos de Vistas/Serviços
+
+\lang english
+Anexo A
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Requisitos funcionais:
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Login
 \end_layout
 
 \begin_layout Standard
-A figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Sistema-de-gerenciamento"
 
-\end_inset
+\lang english
+Função: Efetuar Login
+\end_layout
 
- mostra o resultado obtido através da aplicação da técnica de extração de
- requesitos de ponto de vistas.
+\begin_layout Standard
+
+\lang english
+Fase: Pré-Conferência, Conferência e Pós-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Usuário entra com o nome de usuário e senha.
+ Sistema checa os dados, e se estiverem corretos, realiza login.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-condição: O usuário deve estar cadastrado no sistema
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada: Nome de usuário e senha
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Confirmação de login
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Logout
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Função: Efetuar Logout
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fase: Pré-Conferência, Conferência e Pós-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: Usuário seleciona a opção de Logout e sistema realiza a operação.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-condição: Usuário deve estar logado
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada: Não necessária
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Confirmação de logout
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Visualizar Trabalhos Submetidos
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Função: Visualizar trabalhos
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fase: Pré-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O sistema deve fornecer uma lista dos trabalhos submetidos.
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Pré-condição: O usuário deve estar logado como Avaliador
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada: Não necessária
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Lista dos trabalhos submetidos
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Gerar Certificado
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Função: Gerar Certificado
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fase: Pré-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O sistema deve gerar o certificado de cadastro para o participante.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-condição: O usuário deve estar logado como Coordenador
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada: Dados do participante
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Certificado gerado
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Visualizar Certificado
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Função: Visualizar Certificado
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fase: Pós-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O sistema deve mostrar o certificado de determinado usuário.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-condição: Estar logado como participante
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada: Dados do participante
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Certificado
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Validar Trabalho
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Função: Validar Trabalho
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fase: Pré-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O sistema deve permitir que o avaliador valide o trabalho submetido.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-condição: O usuário deve estar logado como avaliador
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada:Trabalho
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Trabalho validado
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Rejeitar Validação
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Função: Rejeitar Validação
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Fase: Pré-Conferência
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Descrição: O sistema deve permitir que o avaliador rejeite a validação do
+ trabalho submetido.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Pré-condição: O usuário deve estar logado como avaliador
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Entrada: Trabalho
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Saída: Trabalho não validado
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Requisitos não funcionais:
+\end_layout
+
+\begin_layout Subsubsection
+Segurança 
+\end_layout
+
+\begin_layout Standard
+Definição: Associados à integridade, privacidade e autenticidade dos dados
+ da aplicação;
+\end_layout
+
+\begin_layout Subsubsection
+Desempenho
+\end_layout
+
+\begin_layout Standard
+Definição: Associados à eficiência, uso de recursos e tempo de resposta
+ da aplicação (Transações processadas/segundo, Tempo de resposta do usuário/even
+to entre outros)
+\end_layout
+
+\begin_layout Section
+Diagrama casos de uso
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Standard
