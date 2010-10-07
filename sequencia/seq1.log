@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  6 OCT 2010 18:05
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  7 OCT 2010 11:44
 entering extended mode
  %&-line parsing enabled.
 **seq1.tex
@@ -349,32 +349,41 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 16.
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¡ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¡ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¡ in font cmr10!
 
-Overfull \hbox (1.90546pt too wide) in paragraph at lines 82--83
- [][] 
+Overfull \hbox (110.84447pt too wide) in paragraph at lines 26--27
+[][] 
  []
 
 Missing character: There is no Ã in font cmr10!
-Missing character: There is no ­ in font cmr10!
-Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¡ in font cmr10!
 
-Overfull \hbox (40.64426pt too wide) in paragraph at lines 264--265
+Overfull \hbox (110.84447pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
-[1] [2] [3] [4] [5] [6] [7] (./seq1.aux) ) 
+
+Overfull \hbox (39.3135pt too wide) in paragraph at lines 86--87
+ [][] 
+ []
+
+
+Overfull \hbox (40.64426pt too wide) in paragraph at lines 272--273
+ [][] 
+ []
+
+
+Overfull \hbox (40.64426pt too wide) in paragraph at lines 291--292
+ [][] 
+ []
+
+[1] [2] [3] [4] [5] [6] [7] [8] (./seq1.aux) ) 
 Here is how much of TeX's memory you used:
- 9349 strings out of 256217
- 183320 string characters out of 1917095
- 407319 words of memory out of 1500000
- 12488 multiletter control sequences out of 10000+200000
+ 9369 strings out of 256217
+ 183643 string characters out of 1917095
+ 428570 words of memory out of 1500000
+ 12508 multiletter control sequences out of 10000+200000
  3939 words of font info for 15 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 56i,8n,69p,441b,829s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 56i,8n,69p,441b,828s stack positions out of 5000i,500n,6000p,200000b,15000s
 
-Output written on seq1.dvi (7 pages, 168748 bytes).
+Output written on seq1.dvi (8 pages, 187252 bytes).
