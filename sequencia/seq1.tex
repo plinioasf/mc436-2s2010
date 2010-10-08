@@ -168,36 +168,40 @@
       
       % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
       \begin{sdblock}{Alt}{Area=Palestras}
+     
         \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
           \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
           \end{call}
-                    
         \end{call}
+        
         \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
-        
-        \begin{call}{usr}{EnviaFormulario(PalestraID)}{palestra}{Aceito()}
-          
+        \begin{call}{usr}{EnviaFormulario(PalestraID)}{sis}{Aceito()}
+          \begin{call}{sis}{EnviaFormulario(PalestraID)}{palestra}{Aceito()}
+          \end{call}
         \end{call}
         
       \end{sdblock}
+    
       \begin{sdblock}{Alt}{Area=Palestrante}
+       
         \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
-    \begin{call}{sis}{ReqPalestrante()}{bd}{RetPalestrantes()}
-    \end{call}
-  
-\end{call}
-  
-    \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
-        \begin{call}{usr}{EnviaFormulario(PalestranteID)}{pal}{Aceito()}\end{call}
+          \begin{call}{sis}{ReqPalestrante()}{bd}{RetPalestrantes()}
+          \end{call}
+        \end{call}
+        
+        \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
+        \begin{call}{usr}{EnviaFormulario(PalestranteID)}{sis}{Aceito()}
+          \begin{call}{sis}{EnviaFormulario(PalestranteID)}{pal}{Aceito()}\end{call}
+        \end{call}
       \end{sdblock}
-
-
+      
       \begin{sdblock}{Alt}{Area=Confer\^encia}
+        
         \begin{call}{usr}{SelArea(Area)}{sis}{RetFormulario()}
         \end{call}
-       \begin{call}{usr}{EnviaFormulario()}{sis}{Aceito()}
+        \begin{call}{usr}{EnviaFormulario()}{sis}{Aceito()}
         \end{call}
-  
+        
      \end{sdblock}
 
 
@@ -304,8 +308,9 @@
         \end{call}
 
 %        \begin{call}{usr}{SelecionaArea(Area)}{sis}{ListaPalestras()}\end{call}
-        \begin{call}{usr}{SelPalestra(PalestraID)}{palestra}{FeedbackPalestra()}\end{call}
-        
+        \begin{call}{usr}{SelPalestra(PalestraID)}{sis}{FeedbackPalestra()}
+          \begin{call}{sis}{ReqFeedbackPalestra(PalestraID)}{palestra}{FeedbackPalestra()}\end{call}
+        \end{call}   
       \end{sdblock}
       \begin{sdblock}{Alt}{Area=Palestrante}
         \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
@@ -313,7 +318,9 @@
           \end{call}
           
         \end{call}
-        \begin{call}{usr}{SelPalestrantes(PalestranteID)}{pal}{FeedbackPalestrante()}\end{call}
+        \begin{call}{usr}{SelPalestrantes(PalestranteID)}{sis}{FeedbackPalestrante()}
+          \begin{call}{sis}{ReqFeedbackPalestrantes(PalestranteID)}{pal}{FeedbackPalestrante()}\end{call}
+        \end{call}
       \end{sdblock}
       \begin{sdblock}{Alt}{Area=Confer\^encia}
         \begin{call}{usr}{SelArea(Area)}{sis}{FeedbacksConfer\^encia()}
