@@ -2,294 +2,443 @@
 % Biblioteca pgf-umlsd
 % http://code.google.com/p/pgf-umlsd/
 
-\documentclass{article}
+\documentclass[a4paper]{article}
+\usepackage[right=1cm,left=1cm,top=3cm]{geometry}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,shadows} % for pgf-umlsd
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
+\usepackage{color}
+
 
 \begin{document}
+\begin{figure}
+  \centering
+
+  \begin{sequencediagram}
+    \newthread{usr}{:Usu\'ario}
+    \newinst[4]{sis}{:Sistema}
+    \newinst[4]{bd}{:Banco de dados}
+    
+    \begin{sdblock}{Login}{}
+      \begin{call}{usr}{Autentica\c{c}\~ao(UserName,Senha)}{sis}{Confirma\c{c}\~ao}
+        \begin{call}{sis}{IsUsuário(UserName,Senha)}{bd}{Sim}
+        \end{call}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Login:Fluxo b\'asico}
+\end{figure}
 
 \begin{figure}
- 
+  \centering
   \begin{sequencediagram}
-   \newthread{usr}{:Participantes,Coordenadores,Avalidares}
-   \newinst[2]{sis}{:Sistema}
-   \newinst[3]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Login}{}
-    \begin{call}{usr}{Autentica\c{c}\~ao(UserName,Senha)}{sis}{Confirma\c{c}\~ao}
-    \begin{call}{sis}{IsUsuário(UserName,Senha)}{bd}{Sim}
-  \end{call}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Login:Fluxo b\'asico}
+    \newthread{usr}{:Usu\'ario}
+    \newinst[4]{sis}{:Sistema}
+    \newinst[4]{bd}{:Banco de dados}
+    \begin{sdblock}{Login}{}
+      \begin{call}{usr}{Autentica\c{c}\~ao(UserName,Senha)}{sis}{Erro - Dados inv\'alidos}
+        \begin{call}{sis}{IsUsuário(UserName,Senha)}{bd}{N\~ao}
+        \end{call}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Login:Fluxo Altenativo}
 \end{figure}
 
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
-   \newthread{usr}{:Participantes,Coordenadores,Avalidares}
-   \newinst[2]{sis}{:Sistema}
-   \newinst[3]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Login}{}
-    \begin{call}{usr}{Autentica\c{c}\~ao(UserName,Senha)}{sis}{Erro - Dados inv\'alidos}
-    \begin{call}{sis}{IsUsuário(UserName,Senha)}{bd}{N\~ao}
-  \end{call}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Login:Fluxo Altenativo}
+    \newthread{usr}{:Usu\'ario}
+    \newinst[3]{sis}{:Sistema}
+    % \newinst[2]{bd}{:Banco de dados}
+    
+    \begin{sdblock}{Logout}{}
+      \begin{call}{usr}{Logout(userID)}{sis}{Sucesso}
+        % \begin{call}{sis}{NotOnline(userID)}{bd}{OK}
+        % \end{call}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Logout:Fluxo B\'asico}
 \end{figure}
 
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
-   \newthread{usr}{:Particantes, Coordenadores, Avalidares}
-   \newinst[3]{sis}{:Sistema}
-%   \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Logout}{}
-    \begin{call}{usr}{Logout(userID)}{sis}{Sucesso}
-%    \begin{call}{sis}{NotOnline(userID)}{bd}{OK}
-%  \end{call}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Logout:Fluxo B\'asico}
+    \newthread{usr}{:Avaliador}
+    \newinst[4]{sis}{:Sistema}
+  \newinst[3]{bd}{:Banco de dados}
+    \newinst[3]{trab}{:Trabalhos}
+    
+    \begin{sdblock}{Visualizar trabalhos submetidos}{}
+      \begin{call}{usr}{VisualizarTrab()}{sis}{ListaTrab()}
+        \begin{call}{sis}{DeterminadTrabDisp()}{bd}{TrabDisp()}
+        \end{call}
+      \end{call}
+      \begin{call}{usr}{SelecionaTrab(TrabID)}{sis}{MostraTrabalho()}
+        \begin{call}{sis}{RequisitaTrab(TrabID)}{trab}{RetornaTrab()}
+        \end{call}
+
+      \end{call}
+
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso visualizar trabalhos submetidos: Fluxo B\'asico}
 \end{figure}
 
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
-   \newthread{usr}{:Avaliador}
-   \newinst[4]{sis}{:Sistema}
-   \newinst[4]{bd}{:Trabalhos}
- 
-   \begin{sdblock}{Visualizar trabalhos submetidos}{}
-    \begin{call}{usr}{VisualizarTrab()}{sis}{ListaTrab()}
-    \begin{call}{sis}{DeterminadTrabDisp()}{bd}{TrabDisp()}
+    \newthread{usr}{:Coordenador}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[2]{bd}{:Banco de dados}
+    \newinst[2]{cer}{:Certificado}
+    
+    \begin{sdblock}{Gerar certificados}{}
+      \begin{call}{usr}{SelTipoCert(UserID)}{sis}{RetCertificado(CerID)}
+        \begin{call}{sis}{EstadoUsuario(UserID)}{bd}{OK}
+        \end{call}
+        \begin{call}{sis}{CriaCertificado(CerID)}{cer}{OK}
+        \end{call}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Gerar certificados: Fluxo B\'asico}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Coordenador}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[2]{bd}{:Banco de dados}
+    
+    \begin{sdblock}{Gerar certificados}{}
+      \begin{call}{usr}{SelTipoCert(userID)}{sis}{ErroUsu\'ario()}
+        \begin{call}{sis}{EstadoUsuario(UserID)}{bd}{N\~ao OK}
+        \end{call}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Gerar certificados: Fluxo Alternativo}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Participantes,Palestrantes}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[2]{bd}{:Banco de dados}
+    \newinst[2]{cer}{:Certificados}
+    
+    \begin{sdblock}{Visualizar Certificados}{}
+      \begin{call}{usr}{VisCert(userID)}{sis}{CertificadoImprim\'ivel()}
+        \begin{call}{sis}{ReqCert(userID)}{bd}{CertificadoID(CerID)}
+        \end{call}
+        \begin{call}{sis}{ReqCert(CerID)}{cer}{Certificado()}
+        \end{call}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Visualizar certificados: Fluxo B\'asico}
+\end{figure}
+
+
+
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Participantes}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[1]{bd}{:Banco de dados}
+    \newinst[1]{palestra}{:Palestra}
+    \newinst[1]{pal}{:Palestrante}
+    
+    \begin{sdblock}{Dar feedback}{}
+      \begin{call}{usr}{DarFeedback()}{sis}{\'Areas selecion\'aveis()}
+        \begin{call}{sis}{ReqArea()}{bd}{Ret\'Areas()}
+        \end{call}
+      \end{call}
+      
+      % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
+      \begin{sdblock}{Alt}{Area=Palestras}
+        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
+          \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
+          \end{call}
+                    
+        \end{call}
+        \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
+        
+        \begin{call}{usr}{EnviaFormulario(PalestraID)}{palestra}{Aceito()}
+          
+        \end{call}
+        
+      \end{sdblock}
+      \begin{sdblock}{Alt}{Area=Palestrante}
+        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
+    \begin{call}{sis}{ReqPalestrante()}{bd}{RetPalestrantes()}
     \end{call}
-  \end{call}
-   \begin{call}{usr}{SelecionaTrab(TrabID)}{sis}{MostraTrabalho()}
-   \begin{call}{sis}{RequisitaTrab(TrabID)}{bd}{RetornaTrab()}
- \end{call}
-
- \end{call}
-
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso visualizar trabalhos submetidos: Fluxo B\'asico}
-\end{figure}
-
-
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Coordenador}
-   \newinst[3]{sis}{:Sistema}
-   \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Gerar certificados}{}
-    \begin{call}{usr}{SelTipoCert(userID)}{sis}{GeraCertificado()}
-    \begin{call}{sis}{EstadoUsuario(UserID)}{bd}{OK}
-  \end{call}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Gerar certificados: Fluxo B\'asico}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Coordenador}
-   \newinst[3]{sis}{:Sistema}
-   \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Gerar certificados}{}
-    \begin{call}{usr}{SelTipoCert(userID)}{sis}{ErroUsu\'ario(0}
-    \begin{call}{sis}{EstadoUsuario(UserID)}{bd}{N\~ao OK}
-  \end{call}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Gerar certificados: Fluxo Alternativo}
-\end{figure}
-
-
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Participantes,Palestrantes}
-   \newinst[3]{sis}{:Sistema}
- %  \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Visualizar certificados}{}
-    \begin{call}{usr}{VisuCert(userID)}{sis}{CertificadoImprim\'ivel()}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Visualizar certificados: Fluxo B\'asico}
-\end{figure}
-
-
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Participantes}
-   \newinst[4]{sis}{:Sistema}
-  % \newinst[4]{com}{:Comentário}
- 
-   \begin{sdblock}{Dar feedback}{}
-    \begin{call}{usr}{ComentarApresenta\c{c}\~ao(ApresID)}{sis}{CarregaNota/Coment\'ario()}
-  % \begin{call}{sis}{ComentarApresenta\c{c}\~ao(ApresID)}{com}{Carrega caixa para nota/coment\'ario} \end{call}
   
- \end{call}
-  \begin{call}{usr}{Comenta(Coment\'arios)}{sis}{Recebido}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Dar feedback: Fluxo B\'asico}
-\end{figure}
-
-
-
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Participantes}
-   \newinst[4]{sis}{:Sistema}
- %  \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Dar feedback}{}
-    \begin{call}{usr}{ComentarApresenta\c{c}\~ao(ApresID)}{sis}{Carrega caixa para nota/coment\'ario}
-  \end{call}
-  \begin{call}{usr}{CancelaEnvio()}{sis}{Cancelado()}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Dar feedback: Fluxo Alternativo}
-\end{figure}
-
-
-
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Usu\'arios}
-   \newinst[4]{sis}{:Sistema}
- %  \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Visualizar feedback}{}
-    \begin{call}{usr}{ConsultarEstat()}{sis}{\'Areas selecion\'aveis()}
-  \end{call}
-%  \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
-   \begin{sdblock}{Alt}{Area=Palestras}
-  \begin{call}{usr}{SelecionaArea(Area)}{sis}{ListaPalestras()}\end{call}
-  \begin{call}{usr}{SelecionaPalestra(PalestraID)}{sis}{FeedbackPalestra()}\end{call}
-
-   \end{sdblock}
-   \begin{sdblock}{Alt}{Area=Palestrante}
-  \begin{call}{usr}{SelecionaArea(Area)}{sis}{ListaPalestrantes()}\end{call}
-  \begin{call}{usr}{SelecionaPalestrantes(PalestranteID)}{sis}{FeedbackPalestrante()}\end{call}
-   \end{sdblock}
-  \begin{sdblock}{Alt}{Area=Confer\^encia}
-  \begin{call}{usr}{SelecionaArea(Area)}{sis}{FeedbacksConfer\^encia()}
 \end{call}
-   \end{sdblock}
+  
+    \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
+        \begin{call}{usr}{EnviaFormulario(PalestranteID)}{pal}{Aceito()}\end{call}
+      \end{sdblock}
+
+
+      \begin{sdblock}{Alt}{Area=Confer\^encia}
+        \begin{call}{usr}{SelArea(Area)}{sis}{RetFormulario()}
+        \end{call}
+       \begin{call}{usr}{EnviaFormulario()}{sis}{Aceito()}
+        \end{call}
+  
+     \end{sdblock}
 
 
 
-%   \begin{sdblock}{Alt}{Area=Pales}
+      % \begin{sdblock}{Alt}{Area=Pales}
 
-%   \end{sdblock}
+      % \end{sdblock}
 
 
-%  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Visualizar feedback: Fluxo B\'asico}
-\end{figure}
+      % \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
 
-\begin{figure}
-  \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:Usu\'arios}
-   \newinst[4]{sis}{:Sistema}
- %  \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Visualizar feedback}{}
-    \begin{call}{usr}{ConsultarEstat()}{sis}{\'AreasSelecion\'aveis()}
-  \end{call}
-  \begin{call}{usr}{SelecionaArea(Area)}{sis}{Erro\'Area()}
-  \end{call}
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Visualizar feedback: Fluxo Alternativo}
+  
+  \caption{Caso de uso Dar feedback: Fluxo B\'asico}
 \end{figure}
 
 
 \begin{figure}
   \centering
-  \begin{sequencediagram}
-   \newthread{usr}{:P\'ublico}
-   \newinst[4]{sis}{:Sistema}
- %  \newinst[2]{bd}{:Banco de dados}
- 
-   \begin{sdblock}{Visualizar informa\c{c}\~oes}{}
-    \begin{call}{usr}{ConsultarPubl()}{sis}{ListaPapers()}
-  \end{call}
-    \begin{call}{usr}{ConsultarFotos()}{sis}{ListaFotos()}
-  \end{call}
 
+  \begin{sequencediagram}
+    \newthread{usr}{:Participantes}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[1]{bd}{:Banco de dados}
+  %  \newinst[1]{palestra}{:Palestra}
+  %  \newinst[1]{pal}{:Palestrante}
+    
+    \begin{sdblock}{Dar feedback}{}
+      \begin{call}{usr}{DarFeedback()}{sis}{\'Areas selecion\'aveis()}
+        \begin{call}{sis}{ReqArea()}{bd}{Ret\'Areas()}
+        \end{call}
+      \end{call}
+      
+      % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
+      \begin{sdblock}{Alt}{Area=Palestras}
+        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
+          \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
+          \end{call}
+        \end{call}
+        \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
+        
+        \begin{call}{usr}{CancFormulario(PalestraID)}{sis}{OK}
+          
+        \end{call}
+        
+      \end{sdblock}
+      \begin{sdblock}{Alt}{Area=Palestrante}
+        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
+    \begin{call}{sis}{ReqPalestrantes()}{bd}{RetPalestrantes()}
+    \end{call}
+    
+  \end{call}
+  
+  \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
+  \begin{call}{usr}{CancFormulario(PalestranteID)}{sis}{OK}
+  \end{call}
 \end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Visualizar informa\c{c}\~oes: Fluxo B\'asico}
+
+
+
+\begin{sdblock}{Alt}{Area=Confer\^encia}
+  \begin{call}{usr}{SelArea(Area)}{sis}{RetFormulario()}
+  \end{call}
+  \begin{call}{usr}{EnviaFormulario()}{sis}{Aceito()}
+  \end{call}
+  
+\end{sdblock}
+
+
+
+      % \begin{sdblock}{Alt}{Area=Pales}
+
+      % \end{sdblock}
+
+
+      % \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+
+
+
+  \caption{Caso de uso Dar feedback: Fluxo Alternativo}
 \end{figure}
 
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
-   \newthread{usr}{:Avaliadores}
-   \newinst[4]{sis}{:Sistema}
-  \newinst[4]{aut}{:Autor}
- 
-   \begin{sdblock}{Validar Papers}{}
-    \begin{call}{usr}{ValidarTrab(TrabID)}{sis}{Validado()}
-   \begin{call}{sis}{AvisoValidadoTrab(TrabID)}{aut}{}
- 
- \end{call}
- \end{call}
+    \newthread{usr}{:P\'ublico}
+    \newinst[4]{sis}{:Sistema}
+     \newinst[2]{bd}{:Banco de dados}
+     \newinst[2]{palestra}{:Palestra}
+     \newinst[2]{pal}{:Palestrante}
+    
+    \begin{sdblock}{Visualizar feedback}{}
+      \begin{call}{usr}{ConsultarEstat()}{sis}{\'Areas selecion\'aveis()}
+      \end{call}
+      % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
+      \begin{sdblock}{Alt}{Area=Palestras}
+        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
+          \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
+          \end{call}
+        \end{call}
 
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Validar Papers: Fluxo B\'asico}
+%        \begin{call}{usr}{SelecionaArea(Area)}{sis}{ListaPalestras()}\end{call}
+        \begin{call}{usr}{SelPalestra(PalestraID)}{palestra}{FeedbackPalestra()}\end{call}
+        
+      \end{sdblock}
+      \begin{sdblock}{Alt}{Area=Palestrante}
+        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
+          \begin{call}{sis}{ReqPalestrantes()}{bd}{RetPalestrantes()}
+          \end{call}
+          
+        \end{call}
+        \begin{call}{usr}{SelPalestrantes(PalestranteID)}{pal}{FeedbackPalestrante()}\end{call}
+      \end{sdblock}
+      \begin{sdblock}{Alt}{Area=Confer\^encia}
+        \begin{call}{usr}{SelArea(Area)}{sis}{FeedbacksConfer\^encia()}
+        \end{call}
+      \end{sdblock}
+
+
+
+      % \begin{sdblock}{Alt}{Area=Pales}
+
+      % \end{sdblock}
+
+
+      % \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Visualizar feedback: Fluxo B\'asico}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:P\'ublico}
+    \newinst[4]{sis}{:Sistema}
+    % \newinst[2]{bd}{:Banco de dados}
+    
+    \begin{sdblock}{Visualizar feedback}{}
+      \begin{call}{usr}{ConsultarEstat()}{sis}{\'AreasSelecion\'aveis()}
+      \end{call}
+      \begin{call}{usr}{SelecionaArea(Area)}{sis}{Erro\'Area()}
+      \end{call}
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Visualizar feedback: Fluxo Alternativo}
 \end{figure}
 
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
-   \newthread{usr}{:Avaliadores}
-   \newinst[4]{sis}{:Sistema}
-   \newinst[4]{aut}{:Autor}
- 
-   \begin{sdblock}{Validar Papers}{}
-    \begin{call}{usr}{RejeitarTrab(TrabID)}{sis}{Rejeitado()}
-   \begin{call}{sis}{AvisoRejeitoTrab(TrabID)}{aut}{}
-  \end{call}
- \end{call}
+    \newthread{usr}{:P\'ublico}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[1]{bd}{:Banco de dados}
+    \newinst[1]{fotos}{:Fotos}
+    \newinst[1]{pub}{:Publica\c{c}\~ao}
+    
+    \begin{sdblock}{Visualizar informa\c{c}\~oes}{}
+      \begin{sdblock}{Fotos}{}
+        \begin{call}{usr}{ConsultarFotos()}{sis}{ListaFotos()}
+          \begin{call}{sis}{ListaFotos()}{bd}{RetListaFotos()}
+          \end{call}
+        \end{call}
 
-\end{sdblock}
-\end{sequencediagram}
-\caption{Caso de uso Validar Papers: Fluxo Alternativo}
+        \begin{call}{usr}{ReqFoto(FotoID)}{sis}{RetFoto()}
+          \begin{call}{sis}{ReqFotos(FotoID)}{fotos}{RetFoto()}
+          \end{call}
+        \end{call}
+        
+      \end{sdblock}
+      
+
+      \begin{sdblock}{Publica\c{c}\~ao}{}
+        \begin{call}{usr}{ConsultarPubl()}{sis}{ListaPapers()}
+          \begin{call}{sis}{ListaPub()}{bd}{RetListaPub()}
+          \end{call}
+        \end{call}
+
+
+
+        \begin{call}{usr}{ReqPub(PubID)}{sis}{RetPub()}
+          \begin{call}{sis}{ReqPub(PubID)}{pub}{RetPub()}
+          \end{call}
+        \end{call} 
+      \end{sdblock}
+
+
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Visualizar informa\c{c}\~oes: Fluxo B\'asico}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Avaliadores}
+    \newinst[4]{sis}{:Sistema}
+    \newinst[4]{aut}{:Participantes}
+    
+    \begin{sdblock}{Validar Papers}{}
+      \begin{call}{usr}{ValidarTrab(TrabID)}{sis}{Validado()}
+        \begin{call}{sis}{AvisoValidadoTrab(TrabID)}{aut}{}
+
+        \end{call}
+      \end{call}
+
+
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Validar Papers: Fluxo B\'asico}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Avaliadores}
+    \newinst[3]{sis}{:Sistema}
+    \newinst[3]{aut}{:Participante}
+
+    \begin{sdblock}{Validar Papers}{Include:Visualizar trabalho submetidos}
+      % \begin{sdblock}{REF}{Teste}
+      %   \textcolor{blue}{teste}
+      %   \mess{oi}
+      %   \begin{call}{usr}{Include}{sis}{}\end{call}
+      %   \begin{callself}{Include}
+      %   \end{callself}
+      %   \text{Teste}
+      % \end{sdblock}
+      \begin{call}{usr}{RejeitarTrab(TrabID)}{sis}{Rejeitado()}
+        \begin{call}{sis}{AvisoRejeitoTrab(TrabID)}{aut}{}  \end{call}
+      \end{call}
+
+    \end{sdblock}
+  \end{sequencediagram}
+  \caption{Caso de uso Validar Papers: Fluxo Alternativo}
 \end{figure}
 
 \end{document}
