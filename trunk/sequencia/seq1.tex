@@ -3,12 +3,13 @@
 % http://code.google.com/p/pgf-umlsd/
 
 \documentclass[a4paper]{article}
-\usepackage[right=1cm,left=1cm,top=3cm]{geometry}
+\usepackage[right=1cm,left=1cm,top=1cm,bottom=2.5cm]{geometry}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,shadows} % for pgf-umlsd
 \usepackage[underline=true,rounded corners=false]{pgf-umlsd}
 \usepackage{color}
+\usepackage{verbatim} 
 
 
 \begin{document}
@@ -16,13 +17,16 @@
   \centering
 
   \begin{sequencediagram}
-    \newthread{usr}{:Usu\'ario}
-    \newinst[4]{sis}{:Sistema}
-    \newinst[4]{bd}{:Banco de dados}
+    \newthread{pu}{:P\'ublico}
+    \newinst[4]{tw}{:Terminal Web}
+    \newinst[3]{con}{:Controlador}
+    \newinst[3]{usr}{:Usu\'ario}
     
     \begin{sdblock}{Login}{}
-      \begin{call}{usr}{Autentica\c{c}\~ao(UserName,Senha)}{sis}{Confirma\c{c}\~ao}
-        \begin{call}{sis}{IsUsuário(UserName,Senha)}{bd}{Sim}
+      \begin{call}{pu}{Autentica\c{c}\~ao(UsrName,Pwd)}{tw}{Confirma\c{c}\~ao}
+        \begin{call}{tw}{IsUsuário(UsrName,Pwd)}{con}{Sim}
+          \begin{call}{con}{IsUsr(UsrName,Pwd)}{usr}{Sim}
+          \end{call}
         \end{call}
       \end{call}
     \end{sdblock}
@@ -33,12 +37,16 @@
 \begin{figure}
   \centering
   \begin{sequencediagram}
-    \newthread{usr}{:Usu\'ario}
-    \newinst[4]{sis}{:Sistema}
-    \newinst[4]{bd}{:Banco de dados}
+    \newthread{pu}{:P\'ublico}
+    \newinst[4]{tw}{:Terminal Web}
+    \newinst[3]{con}{:Controlador}
+    \newinst[3]{usr}{:Usu\'ario}
+    
     \begin{sdblock}{Login}{}
-      \begin{call}{usr}{Autentica\c{c}\~ao(UserName,Senha)}{sis}{Erro - Dados inv\'alidos}
-        \begin{call}{sis}{IsUsuário(UserName,Senha)}{bd}{N\~ao}
+      \begin{call}{pu}{Autentica\c{c}\~ao(UsrName,Pwd)}{tw}{Erro - Dados inv\'alidos}
+        \begin{call}{tw}{IsUsr(UsrName,Pwd)}{con}{N\~ao}
+          \begin{call}{con}{IsUsr(UsrName,Pwd)}{usr}{N\~ao}
+          \end{call}
         \end{call}
       \end{call}
     \end{sdblock}
@@ -51,13 +59,13 @@
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:Usu\'ario}
-    \newinst[3]{sis}{:Sistema}
-    % \newinst[2]{bd}{:Banco de dados}
+    \newinst[3]{tw}{:Terminal Web}
+     \newinst[2]{con}{:Controlador}
     
     \begin{sdblock}{Logout}{}
-      \begin{call}{usr}{Logout(userID)}{sis}{Sucesso}
-        % \begin{call}{sis}{NotOnline(userID)}{bd}{OK}
-        % \end{call}
+      \begin{call}{usr}{Logout(UserID)}{tw}{OK}
+         \begin{call}{tw}{Logout(UserID)}{con}{OK}
+         \end{call}
       \end{call}
     \end{sdblock}
   \end{sequencediagram}
@@ -69,22 +77,23 @@
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:Avaliador}
-    \newinst[4]{sis}{:Sistema}
-  \newinst[3]{bd}{:Banco de dados}
+    \newinst[4]{tw}{:Terminal Web}
+  \newinst[3]{con}{:Controlador}
     \newinst[3]{trab}{:Trabalhos}
     
     \begin{sdblock}{Visualizar trabalhos submetidos}{}
-      \begin{call}{usr}{VisualizarTrab()}{sis}{ListaTrab()}
-        \begin{call}{sis}{DeterminadTrabDisp()}{bd}{TrabDisp()}
+      \begin{call}{usr}{VisualizarTrab()}{tw}{ListaTrab()}
+        \begin{call}{tw}{ReqTrabDisp()}{con}{RetTrabDisp()}
         \end{call}
       \end{call}
-      \begin{call}{usr}{SelecionaTrab(TrabID)}{sis}{MostraTrabalho()}
-        \begin{call}{sis}{RequisitaTrab(TrabID)}{trab}{RetornaTrab()}
+      \begin{call}{usr}{SelTrab(TrabID)}{tw}{MostraTrab()}
+          \begin{call}{tw}{ReqTrab(TrabID)}{con}{RetTrab()}
+            \begin{call}{con}{ReqTrab(TrabID)}{trab}{RetTrab()}
+            \end{call}
+          \end{call}
         \end{call}
-
-      \end{call}
-
-    \end{sdblock}
+        
+      \end{sdblock}
   \end{sequencediagram}
   \caption{Caso de uso visualizar trabalhos submetidos: Fluxo B\'asico}
 \end{figure}
@@ -93,16 +102,21 @@
 \begin{figure}
   \centering
   \begin{sequencediagram}
-    \newthread{usr}{:Coordenador}
-    \newinst[3]{sis}{:Sistema}
-    \newinst[2]{bd}{:Banco de dados}
-    \newinst[2]{cer}{:Certificado}
+    \newthread{coor}{:Coordenador}
+    \newinst[2]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
+    \newinst[1]{cer}{:Certificado}
+    \newinst[1]{usr}{:Usu\'ario}
     
     \begin{sdblock}{Gerar certificados}{}
-      \begin{call}{usr}{SelTipoCert(UserID)}{sis}{RetCertificado(CerID)}
-        \begin{call}{sis}{EstadoUsuario(UserID)}{bd}{OK}
-        \end{call}
-        \begin{call}{sis}{CriaCertificado(CerID)}{cer}{OK}
+      \begin{call}{coor}{SelTipoCert(UserID)}{tw}{RetCert(CerID)}
+        \begin{call}{tw}{EstadoUsr(UserID)}{con}{OK}
+          \begin{call}{con}{EstadoUsrBd(UserID)}{usr}{Ok}
+          \end{call}
+          
+          \begin{call}{con}{NewCert(CerID)}{cer}{OK}
+          \end{call}
+          
         \end{call}
       \end{call}
     \end{sdblock}
@@ -113,14 +127,18 @@
 \begin{figure}
   \centering
   \begin{sequencediagram}
-    \newthread{usr}{:Coordenador}
-    \newinst[3]{sis}{:Sistema}
-    \newinst[2]{bd}{:Banco de dados}
+    \newthread{coor}{:Coordenador}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
+    \newinst[2]{usr}{:Usu\'ario}
     
     \begin{sdblock}{Gerar certificados}{}
-      \begin{call}{usr}{SelTipoCert(userID)}{sis}{ErroUsu\'ario()}
-        \begin{call}{sis}{EstadoUsuario(UserID)}{bd}{N\~ao OK}
+      \begin{call}{coor}{SelTipoCert(UserID)}{tw}{ErroUsu\'ario()}
+        \begin{call}{tw}{EstadoUsuario(UserID)}{con}{N\~ao OK}
+       \begin{call}{con}{EstadoUsuario(UserID)}{usr}{N\~ao OK}
         \end{call}
+  
+       \end{call}
       \end{call}
     \end{sdblock}
   \end{sequencediagram}
@@ -132,15 +150,19 @@
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:Participantes,Palestrantes}
-    \newinst[3]{sis}{:Sistema}
-    \newinst[2]{bd}{:Banco de dados}
-    \newinst[2]{cer}{:Certificados}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[1]{con}{:Controlador}
+    \newinst[1]{cer}{:Certificados}
+    \newinst[1]{usr2}{:Usu\'ario}
     
     \begin{sdblock}{Visualizar Certificados}{}
-      \begin{call}{usr}{VisCert(userID)}{sis}{CertificadoImprim\'ivel()}
-        \begin{call}{sis}{ReqCert(userID)}{bd}{CertificadoID(CerID)}
-        \end{call}
-        \begin{call}{sis}{ReqCert(CerID)}{cer}{Certificado()}
+      \begin{call}{usr}{VisCert(userID)}{tw}{CertImprim\'ivel()}
+        \begin{call}{tw}{ReqCert(userID)}{con}{CertID(CerID)}
+          \begin{call}{con}{ReqCert(userID)}{usr2}{RetCert()}
+          \end{call}  
+          \begin{call}{con}{ReqCert(CerID)}{cer}{RetCert()}
+          \end{call}
+          
         \end{call}
       \end{call}
     \end{sdblock}
@@ -150,71 +172,113 @@
 
 
 
+%
+% Dar feddback parte um
+%
 
 \begin{figure}
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:Participantes}
-    \newinst[3]{sis}{:Sistema}
-    \newinst[1]{bd}{:Banco de dados}
-    \newinst[1]{palestra}{:Palestra}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
+    \newinst[2]{palestra}{:Palestra}
     \newinst[1]{pal}{:Palestrante}
     
     \begin{sdblock}{Dar feedback}{}
-      \begin{call}{usr}{DarFeedback()}{sis}{\'Areas selecion\'aveis()}
-        \begin{call}{sis}{ReqArea()}{bd}{Ret\'Areas()}
+      \begin{call}{usr}{DarFeedback()}{tw}{\'Areas selecion\'aveis()}
+        \begin{call}{tw}{ReqArea()}{con}{Ret\'Areas()}
         \end{call}
       \end{call}
       
       % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
       \begin{sdblock}{Alt}{Area=Palestras}
      
-        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
-          \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
+        \begin{call}{usr}{SelArea(Area)}{tw}{ListaPalestras()}
+          \begin{call}{tw}{ReqPalestra()}{con}{RetPalestra()}
           \end{call}
         \end{call}
         
-        \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
-        \begin{call}{usr}{EnviaFormulario(PalestraID)}{sis}{Aceito()}
-          \begin{call}{sis}{EnviaFormulario(PalestraID)}{palestra}{Aceito()}
-          \end{call}
+        \begin{call}{usr}{ReqForm()}{tw}{RetForm()}
+          \begin{call}{tw}{ReqForm()}{con}{RetForm()}
+       \end{call}
+        \end{call}
+    
+        \begin{call}{usr}{EnviaForm(PalestraID)}{tw}{Aceito()}
+     \begin{call}{tw}{EnviaForm(PalestraID)}{con}{Aceito()}
+          
+     \begin{call}{con}{EnviaForm(PalestraID)}{palestra}{Aceito()}
+       \end{call}
+       \end{call}
         \end{call}
         
       \end{sdblock}
     
       \begin{sdblock}{Alt}{Area=Palestrante}
        
-        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
-          \begin{call}{sis}{ReqPalestrante()}{bd}{RetPalestrantes()}
+        \begin{call}{usr}{SelArea(Area)}{tw}{ListaPalestrantes()}
+          \begin{call}{tw}{ReqPalestrante()}{con}{RetPalestrantes()}
           \end{call}
         \end{call}
         
-        \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
-        \begin{call}{usr}{EnviaFormulario(PalestranteID)}{sis}{Aceito()}
-          \begin{call}{sis}{EnviaFormulario(PalestranteID)}{pal}{Aceito()}\end{call}
+        \begin{call}{usr}{ReqForm()}{tw}{RetForm()}
+          \begin{call}{tw}{ReqForm()}{con}{RetForm()}\end{call}
         \end{call}
-      \end{sdblock}
+        
+        \begin{call}{usr}{EnviaForm(PalestranteID)}{tw}{Aceito()}
+          \begin{call}{tw}{EnviaForm(PalestranteID)}{con}{Aceito()}
+            \begin{call}{con}{EnviaForm(PalestranteID)}{pal}{Aceito()}\end{call}
+          \end{call}
+        \end{call}
+          
+ \end{sdblock}
+      
+   % \begin{sdblock}{Alt}{Area=Confer\^encia}
+   % \begin{call}{usr}{SelArea(Area)}{tw}{RetForm()}
+   %\end{call}
+   %    \begin{call}{usr}{EnviaForm()}{tw}{Aceito()}
+   %   \end{call}
+   % \end{sdblock}
+     \end{sdblock}
+  \end{sequencediagram}
+
+  
+  \caption{Caso de uso Dar feedback: Fluxo B\'asico}
+\end{figure}
+
+%
+% Dar feddback parte dois
+%
+
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Participantes}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
+    
+    \begin{sdblock}{Dar feedback}{}
+      \begin{call}{usr}{DarFeedback()}{tw}{\'Areas selecion\'aveis()}
+        \begin{call}{tw}{ReqArea()}{con}{Ret\'Areas()}
+        \end{call}
+      \end{call}
       
       \begin{sdblock}{Alt}{Area=Confer\^encia}
         
-        \begin{call}{usr}{SelArea(Area)}{sis}{RetFormulario()}
+        \begin{call}{usr}{SelArea(Area)}{tw}{RetForm()}
+          \begin{call}{tw}{SelArea(Area)}{con}{RetForm()}
+          \end{call}
         \end{call}
-        \begin{call}{usr}{EnviaFormulario()}{sis}{Aceito()}
+       
+        \begin{call}{usr}{EnviaForm()}{tw}{Aceito()}
+          \begin{call}{tw}{EnviaForm()}{con}{Aceito()}
+          \end{call}
         \end{call}
         
-     \end{sdblock}
-
-
-
-      % \begin{sdblock}{Alt}{Area=Pales}
-
-      % \end{sdblock}
-
-
-      % \end{call}
+      \end{sdblock}
     \end{sdblock}
   \end{sequencediagram}
-
+  
   
   \caption{Caso de uso Dar feedback: Fluxo B\'asico}
 \end{figure}
@@ -222,136 +286,191 @@
 
 \begin{figure}
   \centering
-
   \begin{sequencediagram}
     \newthread{usr}{:Participantes}
-    \newinst[3]{sis}{:Sistema}
-    \newinst[1]{bd}{:Banco de dados}
-  %  \newinst[1]{palestra}{:Palestra}
-  %  \newinst[1]{pal}{:Palestrante}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
     
     \begin{sdblock}{Dar feedback}{}
-      \begin{call}{usr}{DarFeedback()}{sis}{\'Areas selecion\'aveis()}
-        \begin{call}{sis}{ReqArea()}{bd}{Ret\'Areas()}
+     \begin{call}{usr}{DarFeedback()}{tw}{Areas selecionaveis()}
+        \begin{call}{tw}{ReqArea()}{con}{RetAreas()}
         \end{call}
       \end{call}
       
-      % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
-      \begin{sdblock}{Alt}{Area=Palestras}
-        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
-          \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
+%       \begin{call}{usr}{SelArea(Area)}{tw}{RetFeedbacks()}
+%         \begin{call}{tw}{SelArea(Area)}{con}{GeraResumoFeedbacks()}
+%         \end{call}
+%   \end{call}
+   
+   \begin{sdblock}{Alt}{Area=Palestras}
+        \begin{call}{usr}{SelArea(Area)}{tw}{ListaPalestras()}
+          \begin{call}{tw}{ReqPalestra()}{con}{RetPalestra()}
           \end{call}
         \end{call}
-        \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
+       
+        \begin{call}{usr}{ReqForm()}{tw}{RetForm()}
+          \begin{call}{tw}{ReqForm()}{con}{RetForm()}
+          \end{call}
+        \end{call}
         
-        \begin{call}{usr}{CancFormulario(PalestraID)}{sis}{OK}
-          
+        \begin{call}{usr}{CancForm(PalestraID)}{tw}{OK}
+          \begin{call}{tw}{CancForm(PalestraID)}{con}{OK}
+          \end{call}
         \end{call}
         
       \end{sdblock}
+     
       \begin{sdblock}{Alt}{Area=Palestrante}
-        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
-    \begin{call}{sis}{ReqPalestrantes()}{bd}{RetPalestrantes()}
-    \end{call}
-    
-  \end{call}
+        \begin{call}{usr}{SelArea(Area)}{tw}{ListaPalestrantes()}
+          \begin{call}{tw}{ReqPalestrantes()}{con}{RetPalestrantes()}
+          \end{call}
+        \end{call}
   
-  \begin{call}{usr}{ReqFormulario()}{sis}{RetFormulario()}\end{call}
-  \begin{call}{usr}{CancFormulario(PalestranteID)}{sis}{OK}
-  \end{call}
-\end{sdblock}
+ 
+        \begin{call}{usr}{ReqForm()}{tw}{RetForm()}
+          \begin{call}{tw}{ReqForm()}{con}{RetForm()}
+          \end{call}
+        \end{call}
 
+       \begin{call}{usr}{CancForm(PalestranteID)}{tw}{OK}
+       \begin{call}{tw}{CancForm(PalestranteID)}{con}{OK}
+       \end{call}
+     \end{call}
+     
+   \end{sdblock}
 
-
-\begin{sdblock}{Alt}{Area=Confer\^encia}
-  \begin{call}{usr}{SelArea(Area)}{sis}{RetFormulario()}
-  \end{call}
-  \begin{call}{usr}{EnviaFormulario()}{sis}{Aceito()}
-  \end{call}
-  
-\end{sdblock}
-
-
-
-      % \begin{sdblock}{Alt}{Area=Pales}
-
-      % \end{sdblock}
-
-
-      % \end{call}
+      
+     
     \end{sdblock}
   \end{sequencediagram}
 
+
+  \caption{Caso de uso Dar feedback: Fluxo Alternativo}
+\end{figure}
+%
+%Dar feedback alternativo parte dois
+%
+\begin{figure}
+  \centering
+  \begin{sequencediagram}
+    \newthread{usr}{:Participantes}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
+    
+    \begin{sdblock}{Dar feedback}{}
+     \begin{call}{usr}{DarFeedback()}{tw}{Areas selecionaveis()}
+        \begin{call}{tw}{ReqArea()}{con}{RetAreas()}
+        \end{call}
+      \end{call}
+      
+    %   \begin{call}{usr}{SelArea(Area)}{tw}{RetFeedbacks()}
+    %     \begin{call}{tw}{SelArea(Area)}{con}{GeraResumoFeedbacks()}
+    %     \end{call}
+ %  \end{call}
+   
+     
+      \begin{sdblock}{Alt}{Area=Confer\^encia}
+        \begin{call}{usr}{SelArea(Area)}{tw}{RetForm()}
+          \begin{call}{tw}{SelArea(Area)}{con}{RetForm()}
+          \end{call}
+        \end{call}
+        \begin{call}{usr}{CancForm()}{tw}{OK}
+          \begin{call}{tw}{CancForm()}{con}{OK}
+          \end{call}
+        \end{call}
+     \end{sdblock}
+      
+    \end{sdblock}
+  \end{sequencediagram}
 
 
   \caption{Caso de uso Dar feedback: Fluxo Alternativo}
 \end{figure}
 
 
+%
+% Figura 12 visualizar feddback
+%
+
+
 \begin{figure}
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:P\'ublico}
-    \newinst[4]{sis}{:Sistema}
-     \newinst[2]{bd}{:Banco de dados}
+    \newinst[4]{tw}{:Terminal Web}
+     \newinst[2]{con}{:Controlador}
      \newinst[2]{palestra}{:Palestra}
-     \newinst[2]{pal}{:Palestrante}
+     \newinst[1]{pal}{:Palestrante}
     
     \begin{sdblock}{Visualizar feedback}{}
-      \begin{call}{usr}{ConsultarEstat()}{sis}{\'Areas selecion\'aveis()}
+      \begin{call}{usr}{ConsultarEstat()}{tw}{Areas selecionaveis()}
+        \begin{call}{tw}{ReqAreas()}{con}{RetAreas()}
+        \end{call}
       \end{call}
       % \begin{call}{usr}{SelecionaArea(Area)}{sis}{GeraResumoFeedbacks()}
       \begin{sdblock}{Alt}{Area=Palestras}
-        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestras()}
-          \begin{call}{sis}{ReqPalestra()}{bd}{RetPalestra()}
+        \begin{call}{usr}{SelArea(Area)}{tw}{ListaPalestras()}
+          \begin{call}{tw}{ReqPalestra()}{con}{RetPalestra()}
           \end{call}
         \end{call}
 
 %        \begin{call}{usr}{SelecionaArea(Area)}{sis}{ListaPalestras()}\end{call}
-        \begin{call}{usr}{SelPalestra(PalestraID)}{sis}{FeedbackPalestra()}
-          \begin{call}{sis}{ReqFeedbackPalestra(PalestraID)}{palestra}{FeedbackPalestra()}\end{call}
+        \begin{call}{usr}{SelPalestra(PalestraID)}{tw}{FeedbackPalestra()}
+          \begin{call}{tw}{ReqFeedback(PalestraID)}{con}{RetFeedback()}
+     \begin{call}{con}{ReqFeedback(PalestraID)}{palestra}{RetFeedback()}\end{call}
+     
+\end{call}
         \end{call}   
       \end{sdblock}
+  
       \begin{sdblock}{Alt}{Area=Palestrante}
-        \begin{call}{usr}{SelArea(Area)}{sis}{ListaPalestrantes()}
-          \begin{call}{sis}{ReqPalestrantes()}{bd}{RetPalestrantes()}
+        \begin{call}{usr}{SelArea(Area)}{tw}{ListaPalestrantes()}
+          \begin{call}{tw}{ReqPalestrantes()}{con}{RetPalestrantes()}
           \end{call}
-          
         \end{call}
-        \begin{call}{usr}{SelPalestrantes(PalestranteID)}{sis}{FeedbackPalestrante()}
-          \begin{call}{sis}{ReqFeedbackPalestrantes(PalestranteID)}{pal}{FeedbackPalestrante()}\end{call}
+  
+        \begin{call}{usr}{SelPalestrantes(PalestranteID)}{tw}{FeedbackPalestrante()}
+          \begin{call}{tw}{ReqFeedback(PalestranteID)}{con}{FeedbackPalestrante()}
+        \begin{call}{con}{ReqFeedback(PalestranteID)}{pal}{FeedbackPalestrante()}
+          \end{call}
+    
+        \end{call}
         \end{call}
       \end{sdblock}
+    
       \begin{sdblock}{Alt}{Area=Confer\^encia}
-        \begin{call}{usr}{SelArea(Area)}{sis}{FeedbacksConfer\^encia()}
+        \begin{call}{usr}{SelArea(Area)}{tw}{RetFeedbacksConf()}
+        \begin{call}{tw}{RetFeedbacksConf()}{con}{RetFeedbacksConf()}
+        \end{call}
         \end{call}
       \end{sdblock}
-
-
-
-      % \begin{sdblock}{Alt}{Area=Pales}
-
-      % \end{sdblock}
-
-
-      % \end{call}
+ 
     \end{sdblock}
   \end{sequencediagram}
   \caption{Caso de uso Visualizar feedback: Fluxo B\'asico}
 \end{figure}
 
+%%%%
+% Visualizar  Feedback Alternativo
+%%%%
 \begin{figure}
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:P\'ublico}
-    \newinst[4]{sis}{:Sistema}
-    % \newinst[2]{bd}{:Banco de dados}
+    \newinst[4]{tw}{:Terminal Web}
+    \newinst[4]{con}{:Controlador}
     
     \begin{sdblock}{Visualizar feedback}{}
-      \begin{call}{usr}{ConsultarEstat()}{sis}{\'AreasSelecion\'aveis()}
+      \begin{call}{usr}{ConsultarEstat()}{tw}{AreasSelecionaveis()}
+        \begin{call}{tw}{ConsultarEstat()}{con}{AreasSelecionaveis()}
+        \end{call}
       \end{call}
-      \begin{call}{usr}{SelecionaArea(Area)}{sis}{Erro\'Area()}
+     
+      \begin{call}{usr}{SelArea(Area)}{tw}{ErroArea()}
+        \begin{call}{tw}{ReqFeedbackArea(Area)}{con}{ErroArea()}
+        \end{call}
       \end{call}
+      
     \end{sdblock}
   \end{sequencediagram}
   \caption{Caso de uso Visualizar feedback: Fluxo Alternativo}
@@ -362,36 +481,40 @@
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:P\'ublico}
-    \newinst[3]{sis}{:Sistema}
-    \newinst[1]{bd}{:Banco de dados}
+    \newinst[3]{tw}{:Terminal Web}
+    \newinst[1]{con}{:Controlador}
     \newinst[1]{fotos}{:Fotos}
     \newinst[1]{pub}{:Publica\c{c}\~ao}
     
     \begin{sdblock}{Visualizar informa\c{c}\~oes}{}
       \begin{sdblock}{Fotos}{}
-        \begin{call}{usr}{ConsultarFotos()}{sis}{ListaFotos()}
-          \begin{call}{sis}{ListaFotos()}{bd}{RetListaFotos()}
+        \begin{call}{usr}{ConsultarFotos()}{tw}{ReqListaFotos()}
+          \begin{call}{tw}{ListaFotos()}{con}{RetListaFotos()}
           \end{call}
         \end{call}
 
-        \begin{call}{usr}{ReqFoto(FotoID)}{sis}{RetFoto()}
-          \begin{call}{sis}{ReqFotos(FotoID)}{fotos}{RetFoto()}
+        \begin{call}{usr}{ReqFoto(FotoID)}{tw}{RetFoto()}
+          \begin{call}{tw}{ReqFotos(FotoID)}{con}{RetFoto()}
+            \begin{call}{con}{ReqFotos(FotoID)}{fotos}{RetFoto()}
+            \end{call}
           \end{call}
-        \end{call}
+          \end{call}
         
       \end{sdblock}
       
 
       \begin{sdblock}{Publica\c{c}\~ao}{}
-        \begin{call}{usr}{ConsultarPubl()}{sis}{ListaPapers()}
-          \begin{call}{sis}{ListaPub()}{bd}{RetListaPub()}
+        \begin{call}{usr}{ConsultarPubl()}{tw}{ListaPapers()}
+          \begin{call}{tw}{ListaPub()}{con}{RetListaPub()}
           \end{call}
         \end{call}
 
 
 
-        \begin{call}{usr}{ReqPub(PubID)}{sis}{RetPub()}
-          \begin{call}{sis}{ReqPub(PubID)}{pub}{RetPub()}
+        \begin{call}{usr}{ReqPub(PubID)}{tw}{RetPub()}
+          \begin{call}{tw}{ReqPub(PubID)}{con}{RetPub()}
+            \begin{call}{con}{ReqPub(PubID)}{pub}{RetPub()}
+            \end{call}
           \end{call}
         \end{call} 
       \end{sdblock}
@@ -407,17 +530,18 @@
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:Avaliadores}
-    \newinst[4]{sis}{:Sistema}
-    \newinst[4]{aut}{:Participantes}
+   \newinst[2]{tw}{:Terminal Web}
+    \newinst[3]{con}{:Controlador}
+    \newinst[3]{aut}{:Participantes}
     
     \begin{sdblock}{Validar Papers}{}
-      \begin{call}{usr}{ValidarTrab(TrabID)}{sis}{Validado()}
-        \begin{call}{sis}{AvisoValidadoTrab(TrabID)}{aut}{}
-
+      \begin{call}{usr}{ValidarTrab(TrabID)}{tw}{Validado()}
+        \begin{call}{tw}{AvisoValidadoTrab(TrabID)}{con}{Validado()}
+            \begin{call}{con}{AvisoValidadoTrab(TrabID)}{aut}{} 
+            \end{call}
+          \end{call}
         \end{call}
-      \end{call}
-
-
+        
     \end{sdblock}
   \end{sequencediagram}
   \caption{Caso de uso Validar Papers: Fluxo B\'asico}
@@ -427,7 +551,8 @@
   \centering
   \begin{sequencediagram}
     \newthread{usr}{:Avaliadores}
-    \newinst[3]{sis}{:Sistema}
+    \newinst[2]{tw}{:Terminal Web}
+    \newinst[2]{con}{:Controlador}
     \newinst[3]{aut}{:Participante}
 
     \begin{sdblock}{Validar Papers}{Include:Visualizar trabalho submetidos}
@@ -439,8 +564,11 @@
       %   \end{callself}
       %   \text{Teste}
       % \end{sdblock}
-      \begin{call}{usr}{RejeitarTrab(TrabID)}{sis}{Rejeitado()}
-        \begin{call}{sis}{AvisoRejeitoTrab(TrabID)}{aut}{}  \end{call}
+      \begin{call}{usr}{RejeitarTrab(TrabID)}{tw}{Rejeitado()}
+        \begin{call}{tw}{AvisoRejeitoTrab(TrabID)}{con}{Rejeitado()} 
+    \begin{call}{con}{AvisoRejeitoTrab(TrabID)}{aut}{}  \end{call}
+
+ \end{call}
       \end{call}
 
     \end{sdblock}

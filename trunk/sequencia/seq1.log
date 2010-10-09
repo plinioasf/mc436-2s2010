@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  8 OCT 2010 03:44
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.5.28)  9 OCT 2010 11:11
 entering extended mode
  %&-line parsing enabled.
 **seq1.tex
@@ -339,21 +339,27 @@ Package: pgf-umlsd 2008/03/20 v0.2 Some LaTeX macros for UML Sequence Diagrams.
 \c@callevel=\count114
 \c@callselflevel=\count115
 \c@blocklevel=\count116
-) (./seq1.aux)
+) (/usr/share/texmf/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks25
+\verbatim@line=\toks26
+\verbatim@in@stream=\read2
+)
+(./seq1.aux)
 \openout1 = `seq1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 -------------------- Geometry parameters
 paper: a4paper
 landscape: --
@@ -361,9 +367,9 @@ twocolumn: --
 twoside: --
 asymmetric: --
 h-parts: 28.45274pt, 540.60239pt, 28.45274pt
-v-parts: 85.35826pt, 631.6512pt, 128.03738pt
+v-parts: 28.45274pt, 745.46222pt, 71.13188pt
 hmarginratio: --
-vmarginratio: 2:3
+vmarginratio: --
 lines: --
 heightrounded: --
 bindingoffset: 0.0pt
@@ -376,10 +382,10 @@ driver:
 \paperwidth  597.50787pt
 \paperheight 845.04684pt
 \textwidth  540.60239pt
-\textheight 631.6512pt
+\textheight 745.46222pt
 \oddsidemargin  -43.81725pt
 \evensidemargin -43.81725pt
-\topmargin  -23.91173pt
+\topmargin  -80.81725pt
 \headheight 12.0pt
 \headsep    25.0pt
 \footskip   30.0pt
@@ -395,33 +401,35 @@ driver:
 -----------------------
  ABD: EveryShipout initializing macros
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
+(Font)              <7> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 19.
+(Font)              <5> on input line 20.
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¡ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¡ in font cmr10!
 
-
-LaTeX Warning: Float too large for page by 124.50499pt on input line 220.
-
-
-LaTeX Warning: Float too large for page by 56.21771pt on input line 288.
-
-
-Overfull \hbox (24.99353pt too wide) in paragraph at lines 339--340
+Overfull \hbox (0.66006pt too wide) in paragraph at lines 169--170
  [][] 
  []
 
-[1] [2] [3] [4] [5] [6] [7] [8] [9] (./seq1.aux) ) 
+
+LaTeX Warning: Float too large for page by 27.76578pt on input line 247.
+
+
+Overfull \hbox (6.18227pt too wide) in paragraph at lines 449--450
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 10.69397pt on input line 451.
+
+[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] (./seq1.aux) ) 
 Here is how much of TeX's memory you used:
- 9767 strings out of 256217
- 189555 string characters out of 1917095
- 573161 words of memory out of 1500000
- 12902 multiletter control sequences out of 10000+200000
+ 9843 strings out of 256217
+ 190751 string characters out of 1917095
+ 686136 words of memory out of 1500000
+ 12975 multiletter control sequences out of 10000+200000
  3939 words of font info for 15 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 56i,8n,69p,441b,886s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 56i,8n,69p,441b,946s stack positions out of 5000i,500n,6000p,200000b,15000s
 
-Output written on seq1.dvi (9 pages, 305872 bytes).
+Output written on seq1.dvi (11 pages, 401752 bytes).
