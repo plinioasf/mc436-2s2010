@@ -1,10 +1,11 @@
 file=diagCase
 file2=diagCase
+file3=login
 make:
-	latex $(file).tex
-	latex $(file).tex
-	dvips $(file).dvi -o
-	ps2pdf13  $(file).ps
+	latex $(file3).tex
+	latex $(file3).tex
+	dvips $(file3).dvi -o
+	ps2pdf13  $(file3).ps
 show:
 	evince $(file).pdf
 clean:
