@@ -322,7 +322,7 @@ Pós-Condição: Usuário deslogado do sistema.
 \begin_layout Standard
 
 \lang english
-Requisitos funcionais: Logout e facilidade de uso
+Requisitos funcionais: Logout 
 \end_layout
 
 \begin_layout Standard
@@ -589,7 +589,7 @@ Descrição: O usuário entra faz requisição de visualização do certificado
 \begin_layout Standard
 
 \lang english
-Atores: Participantes e Palestrantes.
+Atores: Participantes.
 \end_layout
 
 \begin_layout Standard
@@ -1036,6 +1036,101 @@ Não há
 \end_layout
 
 \begin_layout Section
+Regras de negócio
+\end_layout
+
+\begin_layout Subsection
+Regra de negócio RN01: Exigência cadastro usuário 
+\end_layout
+
+\begin_layout Standard
+Nome: Exigência cadastro usuário (RN01)
+\end_layout
+
+\begin_layout Standard
+Descrição: Ao se cadastrar o usuário deverá ter um RG válido.
+ 
+\end_layout
+
+\begin_layout Standard
+Fonte: Setor de cadastro.
+ 
+\end_layout
+
+\begin_layout Standard
+Histórico de evolução: última atualização,18 de outubro de 2010.
+\end_layout
+
+\begin_layout Subsection
+Regra de negócio RN02: Login simultâneo em máquinas diferentes
+\end_layout
+
+\begin_layout Standard
+Nome: Login no sistema (RN02) 
+\end_layout
+
+\begin_layout Standard
+Descrição: Um usuário não pode se logar simultaneamente em diferentes máquinas
+ e para se logar em uma máquina diferente, deve-se, primeiramente, deslogar
+ na máquina atualmente cadastrada, para posteriormente logar-se em outra.
+\end_layout
+
+\begin_layout Standard
+Fonte: Setor de cadastro.
+ 
+\end_layout
+
+\begin_layout Standard
+Histórico de evolução: última atualização, 18 de outubro de 2010.
+\end_layout
+
+\begin_layout Subsection
+Regra de negócio RN03: Avaliação de papers
+\end_layout
+
+\begin_layout Standard
+Nome: Avaliação de papers (RN03)
+\end_layout
+
+\begin_layout Standard
+Descrição: Um paper não pode ser avaliado e/ou validado por qualquer avaliador
+ que possua vínculos familiares com palestrante ou que também tenha contribuído
+ com o trabalho a ser avaliado.
+\end_layout
+
+\begin_layout Standard
+Fonte: Setor de logística.
+ 
+\end_layout
+
+\begin_layout Standard
+Histórico de evolução: última atualização, 18 de outubro de 2010.
+ 
+\end_layout
+
+\begin_layout Subsection
+Regra de negócio RN04: Feedback de palestras
+\end_layout
+
+\begin_layout Standard
+Nome: Feedback de palestras (RN04)
+\end_layout
+
+\begin_layout Standard
+Descrição: Uma palestra não pode receber feedback do próprio palestrante.
+\end_layout
+
+\begin_layout Standard
+Fonte: Setor de logística.
+ 
+\end_layout
+
+\begin_layout Standard
+Histórico de evolução: última atualização, 18 de outubro de 2010.
+ 
+\end_layout
+
+\begin_layout Section
 
 \lang english
 Anexo A
@@ -1382,7 +1477,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Screenshot.png
+	filename a.png
 	scale 40
 
 \end_inset
@@ -1411,10 +1506,6 @@ name "fig:Sistema-de-gerenciamento"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
